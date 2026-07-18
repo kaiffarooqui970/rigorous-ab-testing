@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+*.egg-info/
+
+# Raw/processed data — regenerated via src/ab_test_analysis/data.py, not committed
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Local credentials, environment
+.env
+credentials.json
+service-account*.json
+
+.DS_Store
