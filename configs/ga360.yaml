@@ -1,0 +1,30 @@
+# GA360 mobile vs desktop: OBSERVATIONAL. Device is chosen by the visitor, not assigned.
+# "Treatment" = the session is on mobile (vs desktop). Tablets are excluded, as in the
+# original analysis. The estimand is the difference in conversion probability between
+# mobile and desktop sessions with the same session-start profile. It is NOT the
+# effect of a mobile redesign, and it is causal only if no unmeasured confounding
+# remains (it almost certainly does: purchase intent is unobserved).
+outcome: converted
+cluster: fullVisitorId         # repeat sessions from the same visitor are not independent
+alpha: 0.05
+adjustment_sets:
+  A_session_start:             # primary: fixed before or at session start, not caused by
+    - month                    # the device used in this session
+    - weekday
+    - hour_utc_block
+    - continent
+    - country_top
+    - returning                # visitNumber > 1 (prior visits on this cookie)
+    - log_prior_visits
+  B_plus_channel:              # sensitivity: channel may be partly a CONSEQUENCE of device
+    - month                    # (e.g. social apps on phones), so adjusting for it may
+    - weekday                  # remove part of the device-associated gap (mediator bias)
+    - hour_utc_block
+    - continent
+    - country_top
+    - returning
+    - log_prior_visits
+    - channel_grouping
+excluded_post_treatment: [pageviews, timeOnSite, hits, bounces, transactions]  # never pulled
+n_top_countries: 10
+power_for_future_test: {relative_mdes: [0.10, 0.25, 0.50], alpha: 0.05, power: 0.80}

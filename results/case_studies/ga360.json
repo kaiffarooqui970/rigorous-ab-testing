@@ -1,0 +1,670 @@
+{
+  "all_sessions": {
+    "adjusted": {
+      "A_session_start": {
+        "aipw": {
+          "alpha": 0.05,
+          "ci_high": -0.012039074519018303,
+          "ci_low": -0.013001713768415487,
+          "estimate": -0.012520394143716895,
+          "extra": {
+            "cluster": "fullVisitorId",
+            "crossfit": false,
+            "mean_control_po": 0.016254368096350166,
+            "mean_treated_po": 0.00373397395263327,
+            "n_ps_clipped": 0,
+            "outcome_model": "linear",
+            "overlap": {
+              "adequate": true,
+              "auc": 0.6656627995806688,
+              "ess_control": 650133.4515264628,
+              "ess_treated": 155659.39793235494,
+              "max_weight_share": 8.184520377396805e-05,
+              "n_control": 664479,
+              "n_treated": 208725,
+              "ps_max_control": 0.6240827468404617,
+              "ps_min_treated": 0.01409173414776217,
+              "share_outside_01_99": 0.0,
+              "share_outside_05_95": 0.029621944013082855
+            },
+            "ps_model": "logistic",
+            "risk_ratio": 0.22972126203243265,
+            "rr_ci_high": 0.25059626948892766,
+            "rr_ci_low": 0.21058517087025214
+          },
+          "method": "AIPW (doubly robust)",
+          "n": 873204,
+          "p_value": 0.0,
+          "se": 0.0002455757496031462
+        },
+        "covariates": [
+          "month=2016-09",
+          "month=2016-10",
+          "month=2016-11",
+          "month=2016-12",
+          "month=2017-01",
+          "month=2017-02",
+          "month=2017-03",
+          "month=2017-04",
+          "month=2017-05",
+          "month=2017-06",
+          "month=2017-07",
+          "month=2017-08",
+          "weekday=Monday",
+          "weekday=Saturday",
+          "weekday=Sunday",
+          "weekday=Thursday",
+          "weekday=Tuesday",
+          "weekday=Wednesday",
+          "hour_utc_block=12",
+          "hour_utc_block=16",
+          "hour_utc_block=20",
+          "hour_utc_block=4",
+          "hour_utc_block=8",
+          "continent=Africa",
+          "continent=Americas",
+          "continent=Asia",
+          "continent=Europe",
+          "continent=Oceania",
+          "country_top=Canada",
+          "country_top=Germany",
+          "country_top=India",
+          "country_top=Japan",
+          "country_top=Other",
+          "country_top=Thailand",
+          "country_top=Turkey",
+          "country_top=United Kingdom",
+          "country_top=United States",
+          "country_top=Vietnam",
+          "returning",
+          "log_prior_visits"
+        ],
+        "ipw": {
+          "alpha": 0.05,
+          "ci_high": -0.011927157688609514,
+          "ci_low": -0.01287726665900972,
+          "estimate": -0.012402212173809617,
+          "extra": {
+            "cluster": "fullVisitorId",
+            "ess_control": 650133.4515264624,
+            "ess_treated": 155659.3979323549,
+            "estimand": "ate",
+            "overlap": {
+              "adequate": true,
+              "auc": 0.6656628115314915,
+              "ess_control": 650133.4515264624,
+              "ess_treated": 155659.3979323549,
+              "max_weight_share": 8.184520377396804e-05,
+              "n_control": 664479,
+              "n_treated": 208725,
+              "ps_max_control": 0.6240827468404618,
+              "ps_min_treated": 0.01409173414776217,
+              "share_outside_01_99": 0.0,
+              "share_outside_05_95": 0.029621944013082855
+            },
+            "ps_model": "logistic"
+          },
+          "method": "IPW-ate (sandwich SE)",
+          "n": 873204,
+          "p_value": 0.0,
+          "se": 0.00024237919112150635
+        }
+      },
+      "B_plus_channel": {
+        "aipw": {
+          "alpha": 0.05,
+          "ci_high": -0.011747481691758132,
+          "ci_low": -0.012627243136483656,
+          "estimate": -0.012187362414120894,
+          "extra": {
+            "cluster": "fullVisitorId",
+            "crossfit": false,
+            "mean_control_po": 0.015493182656137989,
+            "mean_treated_po": 0.003305820242017093,
+            "n_ps_clipped": 0,
+            "outcome_model": "linear",
+            "overlap": {
+              "adequate": false,
+              "auc": 0.7370945277337211,
+              "ess_control": 634057.747952904,
+              "ess_treated": 101668.27134165572,
+              "max_weight_share": 0.0001377149189671109,
+              "n_control": 664479,
+              "n_treated": 208725,
+              "ps_max_control": 0.8125859620269889,
+              "ps_min_treated": 0.008474190334122727,
+              "share_outside_01_99": 0.00048671329952680017,
+              "share_outside_05_95": 0.11318202848360749
+            },
+            "ps_model": "logistic",
+            "risk_ratio": 0.21337257265907303,
+            "rr_ci_high": 0.2312552760624759,
+            "rr_ci_low": 0.19687271805574544
+          },
+          "method": "AIPW (doubly robust)",
+          "n": 873204,
+          "p_value": 0.0,
+          "se": 0.00022443306399121845
+        },
+        "covariates": [
+          "month=2016-09",
+          "month=2016-10",
+          "month=2016-11",
+          "month=2016-12",
+          "month=2017-01",
+          "month=2017-02",
+          "month=2017-03",
+          "month=2017-04",
+          "month=2017-05",
+          "month=2017-06",
+          "month=2017-07",
+          "month=2017-08",
+          "weekday=Monday",
+          "weekday=Saturday",
+          "weekday=Sunday",
+          "weekday=Thursday",
+          "weekday=Tuesday",
+          "weekday=Wednesday",
+          "hour_utc_block=12",
+          "hour_utc_block=16",
+          "hour_utc_block=20",
+          "hour_utc_block=4",
+          "hour_utc_block=8",
+          "continent=Africa",
+          "continent=Americas",
+          "continent=Asia",
+          "continent=Europe",
+          "continent=Oceania",
+          "country_top=Canada",
+          "country_top=Germany",
+          "country_top=India",
+          "country_top=Japan",
+          "country_top=Other",
+          "country_top=Thailand",
+          "country_top=Turkey",
+          "country_top=United Kingdom",
+          "country_top=United States",
+          "country_top=Vietnam",
+          "returning",
+          "log_prior_visits",
+          "channel_grouping=Affiliates",
+          "channel_grouping=Direct",
+          "channel_grouping=Display",
+          "channel_grouping=Organic Search",
+          "channel_grouping=Paid Search",
+          "channel_grouping=Referral",
+          "channel_grouping=Social"
+        ],
+        "ipw": {
+          "alpha": 0.05,
+          "ci_high": -0.011931262051644208,
+          "ci_low": -0.012809220644736337,
+          "estimate": -0.012370241348190272,
+          "extra": {
+            "cluster": "fullVisitorId",
+            "ess_control": 634057.7479529041,
+            "ess_treated": 101668.2713416557,
+            "estimand": "ate",
+            "overlap": {
+              "adequate": false,
+              "auc": 0.7370945286313848,
+              "ess_control": 634057.7479529041,
+              "ess_treated": 101668.2713416557,
+              "max_weight_share": 0.00013771491896711092,
+              "n_control": 664479,
+              "n_treated": 208725,
+              "ps_max_control": 0.8125859620269887,
+              "ps_min_treated": 0.008474190334122727,
+              "share_outside_01_99": 0.00048671329952680017,
+              "share_outside_05_95": 0.11318202848360749
+            },
+            "ps_model": "logistic"
+          },
+          "method": "IPW-ate (sandwich SE)",
+          "n": 873204,
+          "p_value": 0.0,
+          "se": 0.00022397314440912044
+        }
+      }
+    },
+    "label": "all sessions",
+    "n_desktop": 664479,
+    "n_mobile": 208725,
+    "n_sessions": 873204,
+    "n_visitors": 689863,
+    "naive_clustered": {
+      "alpha": 0.05,
+      "ci_high": -0.011271136677746407,
+      "ci_low": -0.01221466754035837,
+      "estimate": -0.011742902109052388,
+      "extra": {
+        "df": 689862.0,
+        "mean_control": 0.01584399205994471,
+        "mean_treatment": 0.004101089950892323
+      },
+      "method": "diff_in_means (cluster-robust CR1)",
+      "n": 873204,
+      "p_value": 0.0,
+      "se": 0.00024070064925352044
+    },
+    "naive_iid": {
+      "alpha": 0.05,
+      "ci_high": -0.011332024199565511,
+      "ci_low": -0.012145602921103045,
+      "estimate": -0.011742902109052388,
+      "extra": {
+        "rate_control": 0.01584399205994471,
+        "rate_treatment": 0.004101089950892323,
+        "relative_lift": -0.7411580405130149
+      },
+      "method": "diff_in_proportions (Newcombe CI, pooled z p-value)",
+      "n": 873204,
+      "p_value": 0.0,
+      "se": 0.00020744676102450033
+    }
+  },
+  "balance_set_A": {
+    "max_abs_smd_after": 0.04920038188577848,
+    "max_abs_smd_before": 0.21700171347224723,
+    "n_covariates": 40,
+    "worst_before": {
+      "country_top=Turkey": 0.16671412915990322,
+      "country_top=United States": 0.1541451100797657,
+      "country_top=Vietnam": 0.20781600625458685,
+      "month=2016-10": 0.16306807520670566,
+      "month=2016-11": 0.21700171347224723
+    }
+  },
+  "config": {
+    "adjustment_sets": {
+      "A_session_start": [
+        "month",
+        "weekday",
+        "hour_utc_block",
+        "continent",
+        "country_top",
+        "returning",
+        "log_prior_visits"
+      ],
+      "B_plus_channel": [
+        "month",
+        "weekday",
+        "hour_utc_block",
+        "continent",
+        "country_top",
+        "returning",
+        "log_prior_visits",
+        "channel_grouping"
+      ]
+    },
+    "alpha": 0.05,
+    "cluster": "fullVisitorId",
+    "excluded_post_treatment": [
+      "pageviews",
+      "timeOnSite",
+      "hits",
+      "bounces",
+      "transactions"
+    ],
+    "n_top_countries": 10,
+    "outcome": "converted",
+    "power_for_future_test": {
+      "alpha": 0.05,
+      "power": 0.8,
+      "relative_mdes": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    }
+  },
+  "dataset": "bigquery-public-data.google_analytics_sample, 2016-08-01..2017-08-01, desktop+mobile",
+  "decision": {
+    "reason": "device is self-selected and the adjusted gap rests on an untestable no-unmeasured-confounding assumption; only a randomized test of a specific mobile change can say whether fixing mobile would pay",
+    "verdict": "collect better evidence"
+  },
+  "e_value": {
+    "e_value_ci": 7.444967488099545,
+    "e_value_point": 8.17362412801139,
+    "rr": 0.22972126203243265,
+    "rr_ci_high": 0.25059626948892766,
+    "rr_ci_low": 0.21058517087025214
+  },
+  "e_value_excluding_internal": {
+    "e_value_ci": 5.064972268564318,
+    "e_value_point": 5.579217538426834,
+    "rr": 0.32634744644346486,
+    "rr_ci_high": 0.3558885334818614,
+    "rr_ci_low": 0.29925846376165505
+  },
+  "excluding_internal": {
+    "adjusted": {
+      "A_session_start": {
+        "aipw": {
+          "alpha": 0.05,
+          "ci_high": -0.00626252895207094,
+          "ci_low": -0.007096089577184334,
+          "estimate": -0.006679309264627637,
+          "extra": {
+            "cluster": "fullVisitorId",
+            "crossfit": false,
+            "mean_control_po": 0.009915065606690511,
+            "mean_treated_po": 0.003235756342062872,
+            "n_ps_clipped": 0,
+            "outcome_model": "linear",
+            "overlap": {
+              "adequate": true,
+              "auc": 0.6762046546321031,
+              "ess_control": 576085.2343040139,
+              "ess_treated": 155248.2551089688,
+              "max_weight_share": 6.952242567338793e-05,
+              "n_control": 593105,
+              "n_treated": 208214,
+              "ps_max_control": 0.6324770355436021,
+              "ps_min_treated": 0.018214290482077115,
+              "share_outside_01_99": 0.0,
+              "share_outside_05_95": 0.02889236371532436
+            },
+            "ps_model": "logistic",
+            "risk_ratio": 0.32634744644346486,
+            "rr_ci_high": 0.3558885334818614,
+            "rr_ci_low": 0.29925846376165505
+          },
+          "method": "AIPW (doubly robust)",
+          "n": 801319,
+          "p_value": 1.462493454977596e-216,
+          "se": 0.0002126469240476902
+        },
+        "covariates": [
+          "month=2016-09",
+          "month=2016-10",
+          "month=2016-11",
+          "month=2016-12",
+          "month=2017-01",
+          "month=2017-02",
+          "month=2017-03",
+          "month=2017-04",
+          "month=2017-05",
+          "month=2017-06",
+          "month=2017-07",
+          "month=2017-08",
+          "weekday=Monday",
+          "weekday=Saturday",
+          "weekday=Sunday",
+          "weekday=Thursday",
+          "weekday=Tuesday",
+          "weekday=Wednesday",
+          "hour_utc_block=12",
+          "hour_utc_block=16",
+          "hour_utc_block=20",
+          "hour_utc_block=4",
+          "hour_utc_block=8",
+          "continent=Africa",
+          "continent=Americas",
+          "continent=Asia",
+          "continent=Europe",
+          "continent=Oceania",
+          "country_top=Canada",
+          "country_top=Germany",
+          "country_top=India",
+          "country_top=Japan",
+          "country_top=Other",
+          "country_top=Thailand",
+          "country_top=Turkey",
+          "country_top=United Kingdom",
+          "country_top=United States",
+          "country_top=Vietnam",
+          "returning",
+          "log_prior_visits"
+        ],
+        "ipw": {
+          "alpha": 0.05,
+          "ci_high": -0.0061490651146810455,
+          "ci_low": -0.006978807410766743,
+          "estimate": -0.006563936262723894,
+          "extra": {
+            "cluster": "fullVisitorId",
+            "ess_control": 576085.2343040139,
+            "ess_treated": 155248.25510896885,
+            "estimand": "ate",
+            "overlap": {
+              "adequate": true,
+              "auc": 0.6762046523526173,
+              "ess_control": 576085.2343040139,
+              "ess_treated": 155248.25510896885,
+              "max_weight_share": 6.952242567338787e-05,
+              "n_control": 593105,
+              "n_treated": 208214,
+              "ps_max_control": 0.6324770355436022,
+              "ps_min_treated": 0.018214290482077126,
+              "share_outside_01_99": 0.0,
+              "share_outside_05_95": 0.02889236371532436
+            },
+            "ps_model": "logistic"
+          },
+          "method": "IPW-ate (sandwich SE)",
+          "n": 801319,
+          "p_value": 3.974604079970594e-211,
+          "se": 0.0002116728426212418
+        }
+      },
+      "B_plus_channel": {
+        "aipw": {
+          "alpha": 0.05,
+          "ci_high": -0.006864652684631016,
+          "ci_low": -0.007688145920664328,
+          "estimate": -0.007276399302647672,
+          "extra": {
+            "cluster": "fullVisitorId",
+            "crossfit": false,
+            "mean_control_po": 0.010200934358126001,
+            "mean_treated_po": 0.0029245350554783283,
+            "n_ps_clipped": 0,
+            "outcome_model": "linear",
+            "overlap": {
+              "adequate": true,
+              "auc": 0.7109592796736588,
+              "ess_control": 568046.4443636495,
+              "ess_treated": 134002.5955663625,
+              "max_weight_share": 0.00010287668615275259,
+              "n_control": 593105,
+              "n_treated": 208214,
+              "ps_max_control": 0.8034291589765095,
+              "ps_min_treated": 0.012452973660453632,
+              "share_outside_01_99": 0.0,
+              "share_outside_05_95": 0.04898798106621707
+            },
+            "ps_model": "logistic",
+            "risk_ratio": 0.28669286094843477,
+            "rr_ci_high": 0.3131106157123103,
+            "rr_ci_low": 0.2625040237994302
+          },
+          "method": "AIPW (doubly robust)",
+          "n": 801319,
+          "p_value": 7.122055304890149e-263,
+          "se": 0.00021007866535531315
+        },
+        "covariates": [
+          "month=2016-09",
+          "month=2016-10",
+          "month=2016-11",
+          "month=2016-12",
+          "month=2017-01",
+          "month=2017-02",
+          "month=2017-03",
+          "month=2017-04",
+          "month=2017-05",
+          "month=2017-06",
+          "month=2017-07",
+          "month=2017-08",
+          "weekday=Monday",
+          "weekday=Saturday",
+          "weekday=Sunday",
+          "weekday=Thursday",
+          "weekday=Tuesday",
+          "weekday=Wednesday",
+          "hour_utc_block=12",
+          "hour_utc_block=16",
+          "hour_utc_block=20",
+          "hour_utc_block=4",
+          "hour_utc_block=8",
+          "continent=Africa",
+          "continent=Americas",
+          "continent=Asia",
+          "continent=Europe",
+          "continent=Oceania",
+          "country_top=Canada",
+          "country_top=Germany",
+          "country_top=India",
+          "country_top=Japan",
+          "country_top=Other",
+          "country_top=Thailand",
+          "country_top=Turkey",
+          "country_top=United Kingdom",
+          "country_top=United States",
+          "country_top=Vietnam",
+          "returning",
+          "log_prior_visits",
+          "channel_grouping=Affiliates",
+          "channel_grouping=Direct",
+          "channel_grouping=Display",
+          "channel_grouping=Organic Search",
+          "channel_grouping=Paid Search",
+          "channel_grouping=Referral",
+          "channel_grouping=Social"
+        ],
+        "ipw": {
+          "alpha": 0.05,
+          "ci_high": -0.006657653272008863,
+          "ci_low": -0.007477624662571888,
+          "estimate": -0.007067638967290376,
+          "extra": {
+            "cluster": "fullVisitorId",
+            "ess_control": 568046.4443636495,
+            "ess_treated": 134002.5955663625,
+            "estimand": "ate",
+            "overlap": {
+              "adequate": true,
+              "auc": 0.7109592810502576,
+              "ess_control": 568046.4443636495,
+              "ess_treated": 134002.5955663625,
+              "max_weight_share": 0.00010287668615275268,
+              "n_control": 593105,
+              "n_treated": 208214,
+              "ps_max_control": 0.8034291589765095,
+              "ps_min_treated": 0.012452973660453621,
+              "share_outside_01_99": 0.0,
+              "share_outside_05_95": 0.04898798106621707
+            },
+            "ps_model": "logistic"
+          },
+          "method": "IPW-ate (sandwich SE)",
+          "n": 801319,
+          "p_value": 3.028386595765655e-250,
+          "se": 0.00020918021887923836
+        }
+      }
+    },
+    "label": "excluding probable internal traffic",
+    "n_desktop": 593105,
+    "n_mobile": 208214,
+    "n_sessions": 801319,
+    "n_visitors": 654825,
+    "naive_clustered": {
+      "alpha": 0.05,
+      "ci_high": -0.004522324830590137,
+      "ci_low": -0.0053806255912306365,
+      "estimate": -0.004951475210910387,
+      "extra": {
+        "df": 654824.0,
+        "mean_control": 0.00903381357432495,
+        "mean_treatment": 0.004082338363414564
+      },
+      "method": "diff_in_means (cluster-robust CR1)",
+      "n": 801319,
+      "p_value": 3.5025322301157335e-113,
+      "se": 0.00021895789436522184
+    },
+    "naive_iid": {
+      "alpha": 0.05,
+      "ci_high": -0.004581798587873773,
+      "ci_low": -0.005311607354020112,
+      "estimate": -0.004951475210910387,
+      "extra": {
+        "rate_control": 0.00903381357432495,
+        "rate_treatment": 0.004082338363414564,
+        "relative_lift": -0.5481046481834649
+      },
+      "method": "diff_in_proportions (Newcombe CI, pooled z p-value)",
+      "n": 801319,
+      "p_value": 6.670905918308988e-109,
+      "se": 0.0001860650612437188
+    }
+  },
+  "future_test_power": {
+    "baseline_mobile_rate": 0.004101089950892323,
+    "mobile_sessions_per_month": 16055.76923076923,
+    "rows": [
+      {
+        "months_of_mobile_traffic": 49.84849922146365,
+        "n_per_arm": 400178,
+        "n_total": 800356,
+        "relative_mde": 0.1
+      },
+      {
+        "months_of_mobile_traffic": 8.542723679482572,
+        "n_per_arm": 68580,
+        "n_total": 137160,
+        "relative_mde": 0.25
+      },
+      {
+        "months_of_mobile_traffic": 2.3717331416936163,
+        "n_per_arm": 19040,
+        "n_total": 38080,
+        "relative_mde": 0.5
+      }
+    ]
+  },
+  "git_commit_at_run": "4be219f",
+  "internal_traffic": {
+    "conversion_rate_desktop": 0.07243534060021857,
+    "internal_domain_sessions": 2975,
+    "n_sessions": 71885,
+    "referral_direct": {
+      "conversion_rate_desktop": 0.0749109072851551,
+      "conversions_desktop": 5129,
+      "n_desktop": 68468,
+      "n_mobile": 442
+    },
+    "share_of_desktop_conversions": 0.49107142857142855,
+    "sources_matched": [
+      "(direct)",
+      "sites.google.com"
+    ]
+  },
+  "legacy_counts_check": {
+    "desktop": {
+      "conversions": 10528,
+      "sessions": 664479
+    },
+    "mobile": {
+      "conversions": 856,
+      "sessions": 208725
+    }
+  },
+  "overlap_set_A": {
+    "adequate": true,
+    "auc": 0.6656627995806688,
+    "ess_control": 650133.4515264628,
+    "ess_treated": 155659.39793235494,
+    "max_weight_share": 8.184520377396805e-05,
+    "n_control": 664479,
+    "n_treated": 208725,
+    "ps_max_control": 0.6240827468404617,
+    "ps_min_treated": 0.01409173414776217,
+    "share_outside_01_99": 0.0,
+    "share_outside_05_95": 0.029621944013082855
+  },
+  "se_inflation_from_clustering": 1.1603008312339602,
+  "sessions_per_visitor": 1.2657643619095387
+}

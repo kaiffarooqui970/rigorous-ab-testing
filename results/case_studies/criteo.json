@@ -1,0 +1,841 @@
+{
+  "ate": {
+    "conversion": {
+      "alpha": 0.05,
+      "ci_high": 0.0013959963752284603,
+      "ci_low": 0.0008797058460760136,
+      "estimate": 0.0011480979365725871,
+      "extra": {
+        "rate_control": 0.0020389669234254643,
+        "rate_treatment": 0.0031870648599980514,
+        "relative_lift": 0.5630782546701556
+      },
+      "method": "diff_in_proportions (Newcombe CI, pooled z p-value)",
+      "n": 1001957,
+      "p_value": 7.42955919912063e-14,
+      "se": 0.00013148312736248775
+    },
+    "visit": {
+      "alpha": 0.05,
+      "ci_high": 0.011600394880641664,
+      "ci_low": 0.009450940752255402,
+      "estimate": 0.010535488808973724,
+      "extra": {
+        "rate_control": 0.03839388043391349,
+        "rate_treatment": 0.04892936924288721,
+        "relative_lift": 0.27440541799644924
+      },
+      "method": "diff_in_proportions (Newcombe CI, pooled z p-value)",
+      "n": 1001957,
+      "p_value": 2.9841635494697776e-70,
+      "se": 0.0005483008319227924
+    }
+  },
+  "balance": [
+    {
+      "covariate": "f0",
+      "imbalanced": false,
+      "mean_control": 19.645530741303357,
+      "mean_treated": 19.613270167150052,
+      "smd": -0.005997359552193448,
+      "variance_ratio": 0.9989678974985325
+    },
+    {
+      "covariate": "f1",
+      "imbalanced": false,
+      "mean_control": 10.06768416641167,
+      "mean_treated": 10.070276358458562,
+      "smd": 0.02631265124883396,
+      "variance_ratio": 1.3913052247899438
+    },
+    {
+      "covariate": "f2",
+      "imbalanced": false,
+      "mean_control": 8.448528594822184,
+      "mean_treated": 8.446154662517854,
+      "smd": -0.007916276782865802,
+      "variance_ratio": 0.9880446982574921
+    },
+    {
+      "covariate": "f3",
+      "imbalanced": false,
+      "mean_control": 4.231149125406963,
+      "mean_treated": 4.171263352679866,
+      "smd": -0.04618213529704727,
+      "variance_ratio": 1.187580631611011
+    },
+    {
+      "covariate": "f4",
+      "imbalanced": false,
+      "mean_control": 10.336481877911494,
+      "mean_treated": 10.339185090198095,
+      "smd": 0.007940515758841873,
+      "variance_ratio": 1.018330610740891
+    },
+    {
+      "covariate": "f5",
+      "imbalanced": false,
+      "mean_control": 4.0408577866780115,
+      "mean_treated": 4.026951164494661,
+      "smd": -0.033836966553203514,
+      "variance_ratio": 1.2679732235146106
+    },
+    {
+      "covariate": "f6",
+      "imbalanced": false,
+      "mean_control": -3.9997614603255762,
+      "mean_treated": -4.1786041985127405,
+      "smd": -0.03958008354081897,
+      "variance_ratio": 1.076094857499235
+    },
+    {
+      "covariate": "f7",
+      "imbalanced": false,
+      "mean_control": 5.080109281143272,
+      "mean_treated": 5.105040047291621,
+      "smd": 0.020992348537340246,
+      "variance_ratio": 1.0860866502050432
+    },
+    {
+      "covariate": "f8",
+      "imbalanced": false,
+      "mean_control": 3.934615891437339,
+      "mean_treated": 3.933395639293408,
+      "smd": -0.021720042181711037,
+      "variance_ratio": 1.052810595407676
+    },
+    {
+      "covariate": "f9",
+      "imbalanced": false,
+      "mean_control": 15.8905135992236,
+      "mean_treated": 16.052482778279565,
+      "smd": 0.023360548506034026,
+      "variance_ratio": 1.0762244763200397
+    },
+    {
+      "covariate": "f10",
+      "imbalanced": false,
+      "mean_control": 5.331553109098374,
+      "mean_treated": 5.333849143458719,
+      "smd": 0.01379241568724889,
+      "variance_ratio": 1.0720487033284178
+    },
+    {
+      "covariate": "f11",
+      "imbalanced": false,
+      "mean_control": -0.17086000205284704,
+      "mean_treated": -0.17096198037183724,
+      "smd": -0.004541789844245542,
+      "variance_ratio": 1.0086116949552153
+    }
+  ],
+  "balance_max_abs_smd": 0.04618213529704727,
+  "best_model": "x_learner",
+  "config": {
+    "designed_treatment_share": 0.85,
+    "economics": {
+      "cost_per_treatment": 0.01,
+      "population": 10000000,
+      "value_per_conversion": 1.0
+    },
+    "features": [
+      "f0",
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f8",
+      "f9",
+      "f10",
+      "f11"
+    ],
+    "outcome": "visit",
+    "sample_rows": 1000000,
+    "sample_seed": 20240601,
+    "secondary_outcome": "conversion",
+    "sensitivity_breakeven_uplifts": [
+      0.0025,
+      0.005,
+      0.01,
+      0.015,
+      0.02,
+      0.03
+    ],
+    "split": {
+      "seed": 7,
+      "test": 0.4,
+      "train": 0.4,
+      "validation": 0.2
+    }
+  },
+  "dataset": "Criteo Uplift v2.1 (CC BY-NC-SA 4.0), seeded sample",
+  "decision": {
+    "reason": "targeting beats random at the chosen depth and is profitable on the held-out test set",
+    "verdict": "launch"
+  },
+  "evaluation": {
+    "t_learner": {
+      "decision": {
+        "breakeven_uplift": 0.01,
+        "chosen_depth": 0.3,
+        "chosen_on": "validation",
+        "economics": {
+          "cost_per_treatment": 0.01,
+          "population": 10000000,
+          "value_per_conversion": 1.0
+        },
+        "test_profit_ci": [
+          0.004660100781156598,
+          0.007466329768906128
+        ],
+        "test_profit_per_user": 0.006063215275031363,
+        "test_random_profit_per_user": 0.0003303791831622977,
+        "test_treat_all_profit_per_user": 0.0011012639438743258,
+        "test_uplift_top": 0.03021071758343788
+      },
+      "model_minus_random_profit_ci": [
+        0.004746532048387026,
+        0.0068705761599906915
+      ],
+      "policy_table_test": [
+        {
+          "depth": 0.05,
+          "n_targeted": 20039,
+          "profit_ci_high": 0.00479834974805454,
+          "profit_ci_low": 0.002896528307331923,
+          "profit_per_user": 0.0038474390276932316,
+          "random_profit_per_user": 5.5063197193716296e-05,
+          "total_profit": 38474.39027693232,
+          "total_random_profit": 550.6319719371629,
+          "uplift_ci_high": 0.10596699496109079,
+          "uplift_ci_low": 0.06793056614663846,
+          "uplift_top": 0.08694878055386462
+        },
+        {
+          "depth": 0.1,
+          "n_targeted": 40078,
+          "profit_ci_high": 0.007086646609197335,
+          "profit_ci_low": 0.0047407259512151365,
+          "profit_per_user": 0.005913686280206235,
+          "random_profit_per_user": 0.00011012639438743259,
+          "total_profit": 59136.86280206235,
+          "total_random_profit": 1101.2639438743258,
+          "uplift_ci_high": 0.08086646609197334,
+          "uplift_ci_low": 0.057407259512151365,
+          "uplift_top": 0.06913686280206235
+        },
+        {
+          "depth": 0.2,
+          "n_targeted": 80157,
+          "profit_ci_high": 0.0076619054391618745,
+          "profit_ci_low": 0.004954364028529661,
+          "profit_per_user": 0.006308134733845768,
+          "random_profit_per_user": 0.00022025278877486518,
+          "total_profit": 63081.34733845768,
+          "total_random_profit": 2202.5278877486517,
+          "uplift_ci_high": 0.048309527195809374,
+          "uplift_ci_low": 0.034771820142648305,
+          "uplift_top": 0.04154067366922884
+        },
+        {
+          "depth": 0.3,
+          "n_targeted": 120235,
+          "profit_ci_high": 0.007466329768906128,
+          "profit_ci_low": 0.004660100781156598,
+          "profit_per_user": 0.006063215275031363,
+          "random_profit_per_user": 0.0003303791831622977,
+          "total_profit": 60632.15275031363,
+          "total_random_profit": 3303.791831622977,
+          "uplift_ci_high": 0.03488776589635376,
+          "uplift_ci_low": 0.025533669270521996,
+          "uplift_top": 0.03021071758343788
+        },
+        {
+          "depth": 0.4,
+          "n_targeted": 160313,
+          "profit_ci_high": 0.006923033122236935,
+          "profit_ci_low": 0.004081328351669337,
+          "profit_per_user": 0.005502180736953136,
+          "random_profit_per_user": 0.00044050557754973037,
+          "total_profit": 55021.807369531365,
+          "total_random_profit": 4405.055775497303,
+          "uplift_ci_high": 0.02730758280559234,
+          "uplift_ci_low": 0.020203320879173342,
+          "uplift_top": 0.02375545184238284
+        },
+        {
+          "depth": 0.5,
+          "n_targeted": 200392,
+          "profit_ci_high": 0.00616664421208953,
+          "profit_ci_low": 0.003299809662565355,
+          "profit_per_user": 0.004733226937327442,
+          "random_profit_per_user": 0.0005506319719371629,
+          "total_profit": 47332.26937327442,
+          "total_random_profit": 5506.319719371629,
+          "uplift_ci_high": 0.02233328842417906,
+          "uplift_ci_low": 0.01659961932513071,
+          "uplift_top": 0.019466453874654885
+        },
+        {
+          "depth": 0.6,
+          "n_targeted": 240470,
+          "profit_ci_high": 0.005328715896158494,
+          "profit_ci_low": 0.002446816591265455,
+          "profit_per_user": 0.0038877662437119746,
+          "random_profit_per_user": 0.0006607583663245954,
+          "total_profit": 38877.66243711975,
+          "total_random_profit": 6607.583663245954,
+          "uplift_ci_high": 0.018881193160264157,
+          "uplift_ci_low": 0.014078027652109092,
+          "uplift_top": 0.016479610406186625
+        },
+        {
+          "depth": 0.7,
+          "n_targeted": 280548,
+          "profit_ci_high": 0.004566496266706109,
+          "profit_ci_low": 0.0016822626736283156,
+          "profit_per_user": 0.0031243794701672116,
+          "random_profit_per_user": 0.000770884760712028,
+          "total_profit": 31243.794701672115,
+          "total_random_profit": 7708.8476071202795,
+          "uplift_ci_high": 0.016523566095294442,
+          "uplift_ci_low": 0.012403232390897594,
+          "uplift_top": 0.014463399243096017
+        },
+        {
+          "depth": 0.8,
+          "n_targeted": 320626,
+          "profit_ci_high": 0.0035775696697516236,
+          "profit_ci_low": 0.0006773136938315188,
+          "profit_per_user": 0.0021274416817915714,
+          "random_profit_per_user": 0.0008810111550994607,
+          "total_profit": 21274.416817915713,
+          "total_random_profit": 8810.111550994607,
+          "uplift_ci_high": 0.01447196208718953,
+          "uplift_ci_low": 0.010846642117289399,
+          "uplift_top": 0.012659302102239464
+        },
+        {
+          "depth": 0.9,
+          "n_targeted": 360705,
+          "profit_ci_high": 0.002687023424459942,
+          "profit_ci_low": -0.00024224183983941606,
+          "profit_per_user": 0.001222390792310263,
+          "random_profit_per_user": 0.0009911375494868933,
+          "total_profit": 12223.90792310263,
+          "total_random_profit": 9911.375494868933,
+          "uplift_ci_high": 0.01298558158273327,
+          "uplift_ci_low": 0.009730842400178427,
+          "uplift_top": 0.011358211991455848
+        },
+        {
+          "depth": 1.0,
+          "n_targeted": 400783,
+          "profit_ci_high": 0.0027856393556724268,
+          "profit_ci_low": -0.0005831114679237751,
+          "profit_per_user": 0.0011012639438743258,
+          "random_profit_per_user": 0.0011012639438743258,
+          "total_profit": 11012.639438743257,
+          "total_random_profit": 11012.639438743257,
+          "uplift_ci_high": 0.012785639355672427,
+          "uplift_ci_low": 0.009416888532076225,
+          "uplift_top": 0.011101263943874326
+        }
+      ],
+      "qini_ci": [
+        0.002274148812805626,
+        0.003526487874755685
+      ],
+      "qini_coefficient": 0.0029674151982865007,
+      "uplift_by_decile": [
+        {
+          "bin": 1,
+          "ci_high": 0.08085839575313575,
+          "ci_low": 0.05739927789087606,
+          "n": 40079,
+          "observed_uplift": 0.0691288368220059,
+          "predicted_uplift": 0.07383080265829867
+        },
+        {
+          "bin": 2,
+          "ci_high": 0.013264363036351819,
+          "ci_low": 0.00044321011565316096,
+          "n": 40078,
+          "observed_uplift": 0.006853786576002489,
+          "predicted_uplift": 0.011394585011101398
+        },
+        {
+          "bin": 3,
+          "ci_high": 0.004582880789428341,
+          "ci_low": -0.00229123117838217,
+          "n": 40078,
+          "observed_uplift": 0.0011458248055230859,
+          "predicted_uplift": 0.002513562822463477
+        },
+        {
+          "bin": 4,
+          "ci_high": 0.0032095874472212547,
+          "ci_low": -0.00017894487070835925,
+          "n": 40079,
+          "observed_uplift": 0.0015153212882564478,
+          "predicted_uplift": 0.0009171856027149374
+        },
+        {
+          "bin": 5,
+          "ci_high": 0.0022568196824668063,
+          "ci_low": -0.000621405581592404,
+          "n": 40078,
+          "observed_uplift": 0.0008177070504372013,
+          "predicted_uplift": 0.0002960998259877489
+        },
+        {
+          "bin": 6,
+          "ci_high": 0.001708456450209354,
+          "ci_low": -0.00012361822710591614,
+          "n": 40078,
+          "observed_uplift": 0.000792419111551719,
+          "predicted_uplift": 8.674699895301955e-05
+        },
+        {
+          "bin": 7,
+          "ci_high": 0.0013530858526222462,
+          "ci_low": 2.985352042971694e-05,
+          "n": 40079,
+          "observed_uplift": 0.0006914696865259816,
+          "predicted_uplift": -0.0001056030823613885
+        },
+        {
+          "bin": 8,
+          "ci_high": 0.0009198113144712912,
+          "ci_low": -0.0016819645257920002,
+          "n": 40078,
+          "observed_uplift": -0.0003810766056603545,
+          "predicted_uplift": -0.00021256007511626494
+        },
+        {
+          "bin": 9,
+          "ci_high": 0.0023130550754916243,
+          "ci_low": -0.0018105796030668856,
+          "n": 40078,
+          "observed_uplift": 0.00025123773621236935,
+          "predicted_uplift": -0.000634639032912455
+        },
+        {
+          "bin": 10,
+          "ci_high": 0.017521057300311657,
+          "ci_low": 0.0012979804002888201,
+          "n": 40078,
+          "observed_uplift": 0.009409518850300239,
+          "predicted_uplift": -0.01738381983986314
+        }
+      ]
+    },
+    "x_learner": {
+      "decision": {
+        "breakeven_uplift": 0.01,
+        "chosen_depth": 0.2,
+        "chosen_on": "validation",
+        "economics": {
+          "cost_per_treatment": 0.01,
+          "population": 10000000,
+          "value_per_conversion": 1.0
+        },
+        "test_profit_ci": [
+          0.005432265378500784,
+          0.008049411004857634
+        ],
+        "test_profit_per_user": 0.00674083819167921,
+        "test_random_profit_per_user": 0.00022025278877486518,
+        "test_treat_all_profit_per_user": 0.0011012639438743258,
+        "test_uplift_top": 0.04370419095839605
+      },
+      "model_minus_random_profit_ci": [
+        0.005350335306790798,
+        0.007690198594848776
+      ],
+      "policy_table_test": [
+        {
+          "depth": 0.05,
+          "n_targeted": 20039,
+          "profit_ci_high": 0.005004988259658573,
+          "profit_ci_low": 0.0031619724748699236,
+          "profit_per_user": 0.004083480367264248,
+          "random_profit_per_user": 5.5063197193716296e-05,
+          "total_profit": 40834.80367264248,
+          "total_random_profit": 550.6319719371629,
+          "uplift_ci_high": 0.11009976519317144,
+          "uplift_ci_low": 0.07323944949739847,
+          "uplift_top": 0.09166960734528495
+        },
+        {
+          "depth": 0.1,
+          "n_targeted": 40078,
+          "profit_ci_high": 0.006840883237756257,
+          "profit_ci_low": 0.004538973715865326,
+          "profit_per_user": 0.005689928476810792,
+          "random_profit_per_user": 0.00011012639438743259,
+          "total_profit": 56899.284768107915,
+          "total_random_profit": 1101.2639438743258,
+          "uplift_ci_high": 0.07840883237756256,
+          "uplift_ci_low": 0.055389737158653266,
+          "uplift_top": 0.06689928476810791
+        },
+        {
+          "depth": 0.2,
+          "n_targeted": 80157,
+          "profit_ci_high": 0.008049411004857634,
+          "profit_ci_low": 0.005432265378500784,
+          "profit_per_user": 0.00674083819167921,
+          "random_profit_per_user": 0.00022025278877486518,
+          "total_profit": 67408.3819167921,
+          "total_random_profit": 2202.5278877486517,
+          "uplift_ci_high": 0.050247055024288174,
+          "uplift_ci_low": 0.03716132689250392,
+          "uplift_top": 0.04370419095839605
+        },
+        {
+          "depth": 0.3,
+          "n_targeted": 120235,
+          "profit_ci_high": 0.007635975895117506,
+          "profit_ci_low": 0.004856283447541199,
+          "profit_per_user": 0.006246129671329353,
+          "random_profit_per_user": 0.0003303791831622977,
+          "total_profit": 62461.29671329353,
+          "total_random_profit": 3303.791831622977,
+          "uplift_ci_high": 0.03545325298372502,
+          "uplift_ci_low": 0.026187611491804,
+          "uplift_top": 0.03082043223776451
+        },
+        {
+          "depth": 0.4,
+          "n_targeted": 160313,
+          "profit_ci_high": 0.0071286822157282164,
+          "profit_ci_low": 0.0042745908650105545,
+          "profit_per_user": 0.005701636540369385,
+          "random_profit_per_user": 0.00044050557754973037,
+          "total_profit": 57016.36540369385,
+          "total_random_profit": 4405.055775497303,
+          "uplift_ci_high": 0.02782170553932054,
+          "uplift_ci_low": 0.020686477162526386,
+          "uplift_top": 0.024254091350923462
+        },
+        {
+          "depth": 0.5,
+          "n_targeted": 200392,
+          "profit_ci_high": 0.006625168924315152,
+          "profit_ci_low": 0.0037403022428050365,
+          "profit_per_user": 0.005182735583560094,
+          "random_profit_per_user": 0.0005506319719371629,
+          "total_profit": 51827.355835600945,
+          "total_random_profit": 5506.319719371629,
+          "uplift_ci_high": 0.023250337848630304,
+          "uplift_ci_low": 0.017480604485610073,
+          "uplift_top": 0.02036547116712019
+        },
+        {
+          "depth": 0.6,
+          "n_targeted": 240470,
+          "profit_ci_high": 0.0059884507423015815,
+          "profit_ci_low": 0.003097661486772036,
+          "profit_per_user": 0.004543056114536808,
+          "random_profit_per_user": 0.0006607583663245954,
+          "total_profit": 45430.56114536808,
+          "total_random_profit": 6607.583663245954,
+          "uplift_ci_high": 0.019980751237169303,
+          "uplift_ci_low": 0.01516276914462006,
+          "uplift_top": 0.01757176019089468
+        },
+        {
+          "depth": 0.7,
+          "n_targeted": 280548,
+          "profit_ci_high": 0.004984596246819698,
+          "profit_ci_low": 0.002067367823570502,
+          "profit_per_user": 0.0035259820351950994,
+          "random_profit_per_user": 0.000770884760712028,
+          "total_profit": 35259.82035195099,
+          "total_random_profit": 7708.8476071202795,
+          "uplift_ci_high": 0.017120851781171,
+          "uplift_ci_low": 0.012953382605100717,
+          "uplift_top": 0.015037117193135857
+        },
+        {
+          "depth": 0.8,
+          "n_targeted": 320626,
+          "profit_ci_high": 0.003997008706187112,
+          "profit_ci_low": 0.0010680233490464,
+          "profit_per_user": 0.0025325160276167564,
+          "random_profit_per_user": 0.0008810111550994607,
+          "total_profit": 25325.160276167564,
+          "total_random_profit": 8810.111550994607,
+          "uplift_ci_high": 0.01499626088273389,
+          "uplift_ci_low": 0.011335029186308,
+          "uplift_top": 0.013165645034520945
+        },
+        {
+          "depth": 0.9,
+          "n_targeted": 360705,
+          "profit_ci_high": 0.003094134567834216,
+          "profit_ci_low": 0.00016028193809542994,
+          "profit_per_user": 0.0016272082529648231,
+          "random_profit_per_user": 0.0009911375494868933,
+          "total_profit": 16272.08252964823,
+          "total_random_profit": 9911.375494868933,
+          "uplift_ci_high": 0.013437927297593574,
+          "uplift_ci_low": 0.010178091042328256,
+          "uplift_top": 0.011808009169960915
+        },
+        {
+          "depth": 1.0,
+          "n_targeted": 400783,
+          "profit_ci_high": 0.0027856393556724268,
+          "profit_ci_low": -0.0005831114679237751,
+          "profit_per_user": 0.0011012639438743258,
+          "random_profit_per_user": 0.0011012639438743258,
+          "total_profit": 11012.639438743257,
+          "total_random_profit": 11012.639438743257,
+          "uplift_ci_high": 0.012785639355672427,
+          "uplift_ci_low": 0.009416888532076225,
+          "uplift_top": 0.011101263943874326
+        }
+      ],
+      "qini_ci": [
+        0.002669919056154251,
+        0.0038738418376395582
+      ],
+      "qini_coefficient": 0.0032612678963184678,
+      "uplift_by_decile": [
+        {
+          "bin": 1,
+          "ci_high": 0.07840126781974346,
+          "ci_low": 0.055382260735864136,
+          "n": 40079,
+          "observed_uplift": 0.0668917642778038,
+          "predicted_uplift": 0.051028390451042176
+        },
+        {
+          "bin": 2,
+          "ci_high": 0.01719242122830756,
+          "ci_low": 0.004901878718602268,
+          "n": 40078,
+          "observed_uplift": 0.011047149973454913,
+          "predicted_uplift": 0.006071569897178955
+        },
+        {
+          "bin": 3,
+          "ci_high": 0.004870524178906374,
+          "ci_low": -0.0043517644771971205,
+          "n": 40078,
+          "observed_uplift": 0.0002593798508546269,
+          "predicted_uplift": 0.002633152531086816
+        },
+        {
+          "bin": 4,
+          "ci_high": 0.005549701447745912,
+          "ci_low": -0.0002378931687099426,
+          "n": 40079,
+          "observed_uplift": 0.0026559041395179846,
+          "predicted_uplift": 0.001962844501538158
+        },
+        {
+          "bin": 5,
+          "ci_high": 0.0039035633922653917,
+          "ci_low": -0.00037731571472860315,
+          "n": 40078,
+          "observed_uplift": 0.0017631238387683943,
+          "predicted_uplift": 0.0015843015142104984
+        },
+        {
+          "bin": 6,
+          "ci_high": 0.0019009479798118773,
+          "ci_low": -0.0006134131452520638,
+          "n": 40078,
+          "observed_uplift": 0.0006437674172799068,
+          "predicted_uplift": 0.001530964207613598
+        },
+        {
+          "bin": 7,
+          "ci_high": 0.0014084713531188591,
+          "ci_low": -0.0017473121650317363,
+          "n": 40079,
+          "observed_uplift": -0.0001694204059564386,
+          "predicted_uplift": 0.0014394493446782245
+        },
+        {
+          "bin": 8,
+          "ci_high": 0.0008674581621079242,
+          "ci_low": -0.0004069742993802564,
+          "n": 40078,
+          "observed_uplift": 0.00023024193136383388,
+          "predicted_uplift": 0.0014068080338191207
+        },
+        {
+          "bin": 9,
+          "ci_high": 0.0009696129591732696,
+          "ci_low": 0.00011050764867692156,
+          "n": 40078,
+          "observed_uplift": 0.0005400603039250956,
+          "predicted_uplift": 0.001403286646953496
+        },
+        {
+          "bin": 10,
+          "ci_high": 0.013461877382926592,
+          "ci_low": -0.002685270595927632,
+          "n": 40078,
+          "observed_uplift": 0.00538830339349948,
+          "predicted_uplift": -0.0025125895980901824
+        }
+      ]
+    }
+  },
+  "exposure_rate_treated": 0.035931074880176925,
+  "git_commit_at_run": "0e88098",
+  "n_rows": 1001957,
+  "secondary_outcome_qini": {
+    "ci": [
+      0.00019862296347516656,
+      0.0004984027305342012
+    ],
+    "coefficient": 0.00033571466836384244
+  },
+  "sensitivity": [
+    {
+      "breakeven_uplift": 0.0025,
+      "chosen_depth": 0.5,
+      "chosen_on": "validation",
+      "economics": {
+        "cost_per_treatment": 0.0025,
+        "population": 10000000,
+        "value_per_conversion": 1.0
+      },
+      "test_profit_ci": [
+        0.007490302242805036,
+        0.010375168924315153
+      ],
+      "test_profit_per_user": 0.008932735583560095,
+      "test_random_profit_per_user": 0.004300631971937163,
+      "test_treat_all_profit_per_user": 0.008601263943874326,
+      "test_uplift_top": 0.02036547116712019
+    },
+    {
+      "breakeven_uplift": 0.005,
+      "chosen_depth": 0.5,
+      "chosen_on": "validation",
+      "economics": {
+        "cost_per_treatment": 0.005,
+        "population": 10000000,
+        "value_per_conversion": 1.0
+      },
+      "test_profit_ci": [
+        0.006240302242805036,
+        0.009125168924315152
+      ],
+      "test_profit_per_user": 0.007682735583560094,
+      "test_random_profit_per_user": 0.003050631971937163,
+      "test_treat_all_profit_per_user": 0.006101263943874326,
+      "test_uplift_top": 0.02036547116712019
+    },
+    {
+      "breakeven_uplift": 0.01,
+      "chosen_depth": 0.2,
+      "chosen_on": "validation",
+      "economics": {
+        "cost_per_treatment": 0.01,
+        "population": 10000000,
+        "value_per_conversion": 1.0
+      },
+      "test_profit_ci": [
+        0.005432265378500784,
+        0.008049411004857634
+      ],
+      "test_profit_per_user": 0.00674083819167921,
+      "test_random_profit_per_user": 0.00022025278877486518,
+      "test_treat_all_profit_per_user": 0.0011012639438743258,
+      "test_uplift_top": 0.04370419095839605
+    },
+    {
+      "breakeven_uplift": 0.015,
+      "chosen_depth": 0.2,
+      "chosen_on": "validation",
+      "economics": {
+        "cost_per_treatment": 0.015,
+        "population": 10000000,
+        "value_per_conversion": 1.0
+      },
+      "test_profit_ci": [
+        0.004432265378500784,
+        0.007049411004857635
+      ],
+      "test_profit_per_user": 0.00574083819167921,
+      "test_random_profit_per_user": -0.0007797472112251347,
+      "test_treat_all_profit_per_user": -0.0038987360561256734,
+      "test_uplift_top": 0.04370419095839605
+    },
+    {
+      "breakeven_uplift": 0.02,
+      "chosen_depth": 0.1,
+      "chosen_on": "validation",
+      "economics": {
+        "cost_per_treatment": 0.02,
+        "population": 10000000,
+        "value_per_conversion": 1.0
+      },
+      "test_profit_ci": [
+        0.003538973715865326,
+        0.005840883237756256
+      ],
+      "test_profit_per_user": 0.004689928476810792,
+      "test_random_profit_per_user": -0.0008898736056125675,
+      "test_treat_all_profit_per_user": -0.008898736056125674,
+      "test_uplift_top": 0.06689928476810791
+    },
+    {
+      "breakeven_uplift": 0.03,
+      "chosen_depth": 0.1,
+      "chosen_on": "validation",
+      "economics": {
+        "cost_per_treatment": 0.03,
+        "population": 10000000,
+        "value_per_conversion": 1.0
+      },
+      "test_profit_ci": [
+        0.002538973715865327,
+        0.004840883237756256
+      ],
+      "test_profit_per_user": 0.0036899284768107917,
+      "test_random_profit_per_user": -0.0018898736056125673,
+      "test_treat_all_profit_per_user": -0.018898736056125673,
+      "test_uplift_top": 0.06689928476810791
+    }
+  ],
+  "split_sizes": {
+    "test": 400783,
+    "train": 400782,
+    "val": 200392
+  },
+  "srm": {
+    "chi2": 0.3704750000328533,
+    "dof": 1,
+    "expected": [
+      150293.55000000002,
+      851663.45
+    ],
+    "expected_ratios": [
+      0.15000000000000002,
+      0.85
+    ],
+    "observed": [
+      150076,
+      851881
+    ],
+    "observed_ratios": [
+      0.14978287491379372,
+      0.8502171250862063
+    ],
+    "p_value": 0.5427454662266045,
+    "passed": true,
+    "threshold": 0.001
+  }
+}

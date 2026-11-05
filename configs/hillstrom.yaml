@@ -1,0 +1,16 @@
+# Hillstrom e-mail experiment: analysis plan and business assumptions.
+# The primary metric and the decision rule are fixed here, in code, before the
+# effect estimates are computed. They were chosen by the author, who knew this public
+# dataset beforehand, so this is NOT a pre-registration in the formal sense.
+control_arm: "No E-Mail"
+treatment_arms: ["Mens E-Mail", "Womens E-Mail"]
+primary_metric: spend          # dollars per customer over the 2-week window
+secondary_metrics: [visit, conversion]
+alpha: 0.05
+multiplicity: holm             # across all arm x metric comparisons
+cuped_covariate: history       # past-year spend, measured before the send
+regression_covariates: [recency, history, mens, womens, newbie]
+economics:                     # ASSUMPTIONS, not data. Change them and re-run.
+  gross_margin: 0.30           # share of incremental revenue kept as profit
+  cost_per_email: 0.10         # $ per customer e-mailed (creative + send + list cost)
+  customers: 1000000           # size of the mailing list the decision applies to

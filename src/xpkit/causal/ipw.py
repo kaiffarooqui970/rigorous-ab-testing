@@ -24,6 +24,7 @@ from typing import Literal
 import numpy as np
 import pandas as pd
 from numpy.typing import NDArray
+from scipy import stats
 from scipy.special import expit
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
@@ -59,11 +60,27 @@ def _logistic_design(X: NDArray[np.float64]) -> tuple[NDArray[np.float64], NDArr
     return Z, np.column_stack([np.ones(len(Z)), Z])
 
 
+def _cluster_sum(
+    rows: NDArray[np.float64], cluster: NDArray[np.generic] | None
+) -> tuple[NDArray[np.float64], float]:
+    """Sum score rows within clusters. Returns (summed rows, small-sample factor G/(G-1))."""
+    if cluster is None:
+        return rows, 1.0
+    _, inv = np.unique(cluster, return_inverse=True)
+    g = int(np.max(inv)) + 1
+    if g < 2:
+        raise ValueError("need at least two clusters")
+    out = np.zeros((g, rows.shape[1]))
+    np.add.at(out, inv, rows)
+    return out, g / (g - 1)
+
+
 def _sandwich_se(
     y: NDArray[np.float64],
     t: NDArray[np.int_],
     X: NDArray[np.float64],
     estimand: str,
+    cluster: NDArray[np.generic] | None = None,
 ) -> tuple[float, float, NDArray[np.float64]]:
     """Hajek IPW estimate and its stacked-sandwich SE, with a logistic PS fitted on X."""
     Z, Xt = _logistic_design(X)
@@ -89,7 +106,8 @@ def _sandwich_se(
         J[p + 1, :p] = np.mean(((1 - t) * (y - mu0) * e / (1 - e))[:, None] * Xt, axis=0)
     J[p, p] = -np.mean(w1)
     J[p + 1, p + 1] = -np.mean(w0)
-    B = psi.T @ psi / n
+    S, adj = _cluster_sum(psi, cluster)
+    B = adj * S.T @ S / n
     J_inv = np.linalg.inv(J)
     V = J_inv @ B @ J_inv.T / n
     c = np.zeros(p + 2)
@@ -108,8 +126,13 @@ def ipw(
     n_boot: int = 200,
     alpha: float = 0.05,
     seed: int = 0,
+    cluster: str | None = None,
 ) -> Estimate:
     """Hajek IPW estimate of the ATE or ATT.
+
+    ``cluster`` names a column (e.g. a user id). The sandwich then sums the estimating
+    functions within clusters (rows are not independent), and the bootstrap resamples
+    whole clusters.
 
     ``extra`` holds overlap diagnostics and effective sample sizes. Read them before
     the estimate.
@@ -120,21 +143,29 @@ def ipw(
     y = as_1d_float(outcome, df[outcome].to_numpy())
     t = as_treatment(treatment, df[treatment].to_numpy())
     X = df[list(covariates)].to_numpy(dtype=float)
+    cl = df[cluster].to_numpy() if cluster is not None else None
 
     if se == "sandwich":
         if ps_model != "logistic":
             raise ValueError(
                 "the sandwich SE assumes a logistic propensity model; use se='bootstrap'"
             )
-        tau, s, ps = _sandwich_se(y, t, X, estimand)
+        tau, s, ps = _sandwich_se(y, t, X, estimand, cl)
         boot_info: dict[str, float] = {}
     elif se == "bootstrap":
         ps = fit_propensity(df, treatment, covariates, ps_model, seed)
         tau = _hajek(y, t, ps, estimand)
         rng = np.random.default_rng(seed)
         reps = []
+        if cl is not None:
+            uniq, inv = np.unique(cl, return_inverse=True)
+            members = np.split(np.argsort(inv, kind="stable"), np.cumsum(np.bincount(inv))[:-1])
         for _ in range(n_boot):
-            idx = rng.integers(0, len(df), len(df))
+            if cl is None:
+                idx = rng.integers(0, len(df), len(df))
+            else:
+                pick = rng.integers(0, len(uniq), len(uniq))
+                idx = np.concatenate([members[k] for k in pick])
             sub = df.iloc[idx]
             if sub[treatment].nunique() < 2:
                 continue
@@ -162,6 +193,7 @@ def ipw(
         "overlap": overlap_summary(t, ps_c).to_dict(),
         "ess_treated": effective_sample_size(w[t == 1]),
         "ess_control": effective_sample_size(w[t == 0]),
+        "cluster": cluster,
         **boot_info,
     }
     return normal_estimate(tau, s, f"IPW-{estimand} ({se} SE)", alpha=alpha, n=len(y), extra=extra)
@@ -197,6 +229,7 @@ def aipw(
     clip: float = 1e-3,
     alpha: float = 0.05,
     seed: int = 0,
+    cluster: str | None = None,
 ) -> Estimate:
     """Augmented IPW (doubly robust) estimate of the ATE.
 
@@ -205,6 +238,12 @@ def aipw(
     If either nuisance model is flexible (GBM), both are cross-fitted over ``n_folds`` so
     in-sample overfitting doesn't bias the estimate. ``clip`` bounds e(X) away from 0/1
     in the augmentation term. Clipping is reported, never hidden.
+
+    ``cluster`` names a column whose groups share errors (e.g. a user id). The influence
+    function is then summed within clusters for the SE.
+
+    ``extra`` also reports the estimated potential-outcome means and a risk ratio with a
+    delta-method CI, which is useful for E-values on binary outcomes.
     """
     out_cov = list(outcome_covariates) if outcome_covariates is not None else list(ps_covariates)
     require_columns(df, [outcome, treatment, *ps_covariates, *out_cov])
@@ -231,10 +270,31 @@ def aipw(
 
     n_clipped = int(np.sum((ps < clip) | (ps > 1 - clip)))
     e = np.clip(ps, clip, 1 - clip)
-    phi = m1 - m0 + t * (y - m1) / e - (1 - t) * (y - m0) / (1 - e)
+    phi1 = m1 + t * (y - m1) / e
+    phi0 = m0 + (1 - t) * (y - m0) / (1 - e)
+    phi = phi1 - phi0
     tau = float(phi.mean())
-    se = float(phi.std(ddof=1) / np.sqrt(n))
+    mu1, mu0 = float(phi1.mean()), float(phi0.mean())
+    cl = df[cluster].to_numpy() if cluster is not None else None
+    S, adj = _cluster_sum(np.column_stack([phi - tau, phi1 - mu1, phi0 - mu0]), cl)
+    V = adj * S.T @ S / n**2
+    se = float(np.sqrt(V[0, 0]))
+    rr_extra: dict[str, float] = {}
+    if mu1 > 0 and mu0 > 0:
+        g = np.array([0.0, 1 / mu1, -1 / mu0])  # gradient of log(mu1/mu0)
+        se_log = float(np.sqrt(g @ V @ g))
+        z = float(stats.norm.ppf(1 - alpha / 2))
+        rr = mu1 / mu0
+        rr_extra = {
+            "risk_ratio": rr,
+            "rr_ci_low": rr * np.exp(-z * se_log),
+            "rr_ci_high": rr * np.exp(z * se_log),
+        }
     extra = {
+        "mean_treated_po": mu1,
+        "mean_control_po": mu0,
+        **rr_extra,
+        "cluster": cluster,
         "ps_model": ps_model,
         "outcome_model": outcome_model,
         "crossfit": crossfit,

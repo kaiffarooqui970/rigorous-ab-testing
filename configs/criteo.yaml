@@ -1,0 +1,13 @@
+# Criteo Uplift v2.1 targeting case study.
+sample_rows: 1000000           # seeded Bernoulli sample of the 13,979,592-row file
+sample_seed: 20240601
+designed_treatment_share: 0.85 # documented allocation of the Criteo test
+split: {train: 0.4, validation: 0.2, test: 0.4, seed: 7}
+outcome: visit                 # primary uplift target (conversion is ~0.3%; secondary)
+secondary_outcome: conversion
+features: [f0, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]
+economics:                     # ASSUMPTIONS, not data: an incremental visit is worth $1 and
+  value_per_conversion: 1.00   # treating a user (showing ads) costs $0.01, so treatment
+  cost_per_treatment: 0.01     # pays only where uplift > 1pp. Defaults are illustrative;
+  population: 10000000         # the memo reports the decision across a grid of cost ratios.
+sensitivity_breakeven_uplifts: [0.0025, 0.005, 0.01, 0.015, 0.02, 0.03]

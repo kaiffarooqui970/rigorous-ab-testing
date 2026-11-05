@@ -220,3 +220,48 @@ def test_did_rejects_unbalanced_panel():
     )
     with pytest.raises(ValueError, match="time-invariant"):
         did(q)
+
+
+# ----------------------------------------------------------------------------- clustering
+
+
+def _clustered_copy(seed=5):
+    """Every unit appears 4 times with a shared unit-level shock, as repeat sessions would."""
+    sim = simulate_experiment(ExperimentSpec(n=2000, effect=0.5, confounding=0.8), seed=seed)
+    d = pd.concat([sim.data] * 4, ignore_index=True)
+    d["user"] = np.tile(np.arange(2000), 4)
+    d["y"] = d["y"] + np.random.default_rng(seed).normal(0, 0.3, len(d))
+    return d
+
+
+def test_cluster_se_larger_than_iid_with_duplicated_units():
+    d = _clustered_copy()
+    for f in (ipw, aipw):
+        iid, cl = f(d, "y", "treatment", COVS), f(d, "y", "treatment", COVS, cluster="user")
+        assert cl.se > 1.6 * iid.se  # ~sqrt(4) when rows are near-duplicates
+        assert cl.estimate == pytest.approx(iid.estimate)
+
+
+def test_singleton_clusters_match_iid_se(confounded):
+    d = confounded.data.assign(uid=np.arange(len(confounded.data)))
+    for f in (ipw, aipw):
+        a, b = f(d, "y", "treatment", COVS), f(d, "y", "treatment", COVS, cluster="uid")
+        assert b.se == pytest.approx(a.se, rel=1e-3)
+
+
+@pytest.mark.slow
+def test_cluster_bootstrap_runs():
+    d = _clustered_copy()
+    e = ipw(d, "y", "treatment", COVS, se="bootstrap", n_boot=60, cluster="user", seed=2)
+    assert e.se > 0 and e.extra["cluster"] == "user"
+
+
+def test_aipw_reports_risk_ratio_for_binary_outcome():
+    sim = simulate_experiment(
+        ExperimentSpec(n=20_000, outcome="binary", baseline=0.05, effect=0.02, confounding=0.5),
+        seed=1,
+    )
+    e = aipw(sim.data, "y", "treatment", COVS)
+    x = e.extra
+    assert x["rr_ci_low"] < x["risk_ratio"] < x["rr_ci_high"]
+    assert x["mean_treated_po"] - x["mean_control_po"] == pytest.approx(e.estimate)

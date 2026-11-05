@@ -1,0 +1,570 @@
+{
+  "arm_counts": {
+    "Mens E-Mail": 21307,
+    "No E-Mail": 21306,
+    "Womens E-Mail": 21387
+  },
+  "balance": {
+    "Mens E-Mail": [
+      {
+        "covariate": "recency",
+        "imbalanced": false,
+        "mean_control": 5.749694921618324,
+        "mean_treated": 5.773642464917633,
+        "smd": 0.006831532454259954,
+        "variance_ratio": 1.0090739265019224
+      },
+      {
+        "covariate": "history",
+        "imbalanced": false,
+        "mean_control": 240.8826532432179,
+        "mean_treated": 242.83593091472284,
+        "smd": 0.00761286832154239,
+        "variance_ratio": 1.0611783032906257
+      },
+      {
+        "covariate": "mens",
+        "imbalanced": false,
+        "mean_control": 0.5532244438186427,
+        "mean_treated": 0.5509456985967053,
+        "smd": -0.0045823256374879625,
+        "variance_ratio": 1.000960391403377
+      },
+      {
+        "covariate": "womens",
+        "imbalanced": false,
+        "mean_control": 0.5476391626771802,
+        "mean_treated": 0.551415027925095,
+        "smd": 0.007588929691887142,
+        "variance_ratio": 0.9984902332955089
+      },
+      {
+        "covariate": "newbie",
+        "imbalanced": false,
+        "mean_control": 0.5019712756969867,
+        "mean_treated": 0.5015253203172666,
+        "smd": -0.0008918953696535328,
+        "variance_ratio": 1.0000062374001653
+      },
+      {
+        "covariate": "zip=rural",
+        "imbalanced": false,
+        "mean_control": 0.14732939078193935,
+        "mean_treated": 0.1522035011967898,
+        "smd": 0.01365900039927897,
+        "variance_ratio": 1.0271776826728147
+      },
+      {
+        "covariate": "zip=surburban",
+        "imbalanced": false,
+        "mean_control": 0.4517506805594668,
+        "mean_treated": 0.44590979490308347,
+        "smd": -0.01174335672606268,
+        "variance_ratio": 0.9975865117845673
+      },
+      {
+        "covariate": "zip=urban",
+        "imbalanced": false,
+        "mean_control": 0.4009199286585938,
+        "mean_treated": 0.4018867039001267,
+        "smd": 0.0019722315768513645,
+        "variance_ratio": 1.0007937345887932
+      },
+      {
+        "covariate": "channel=multichannel",
+        "imbalanced": false,
+        "mean_control": 0.12231296348446447,
+        "mean_treated": 0.1209461679260337,
+        "smd": -0.004181536419632754,
+        "variance_ratio": 0.9903652915909333
+      },
+      {
+        "covariate": "channel=phone",
+        "imbalanced": false,
+        "mean_control": 0.4377640101379893,
+        "mean_treated": 0.43366029943211154,
+        "smd": -0.008275992307117473,
+        "variance_ratio": 0.9978562363333555
+      },
+      {
+        "covariate": "channel=web",
+        "imbalanced": false,
+        "mean_control": 0.4399230263775462,
+        "mean_treated": 0.4453935326418548,
+        "smd": 0.011013588354428299,
+        "variance_ratio": 1.0025462663020461
+      }
+    ],
+    "Womens E-Mail": [
+      {
+        "covariate": "recency",
+        "imbalanced": false,
+        "mean_control": 5.749694921618324,
+        "mean_treated": 5.767849628278861,
+        "smd": 0.005180013205688683,
+        "variance_ratio": 1.008292800867959
+      },
+      {
+        "covariate": "history",
+        "imbalanced": false,
+        "mean_control": 240.8826532432179,
+        "mean_treated": 242.53663346892975,
+        "smd": 0.006510722458553667,
+        "variance_ratio": 1.0206287438517894
+      },
+      {
+        "covariate": "mens",
+        "imbalanced": false,
+        "mean_control": 0.5532244438186427,
+        "mean_treated": 0.548931593958947,
+        "smd": -0.008630731202832915,
+        "variance_ratio": 1.0017742669979284
+      },
+      {
+        "covariate": "womens",
+        "imbalanced": false,
+        "mean_control": 0.5476391626771802,
+        "mean_treated": 0.5501005283583486,
+        "smd": 0.004946313992582152,
+        "variance_ratio": 0.9990288918348063
+      },
+      {
+        "covariate": "newbie",
+        "imbalanced": false,
+        "mean_control": 0.5019712756969867,
+        "mean_treated": 0.5032496376303361,
+        "smd": 0.0025567009140795606,
+        "variance_ratio": 0.9999733027176053
+      },
+      {
+        "covariate": "zip=rural",
+        "imbalanced": false,
+        "mean_control": 0.14732939078193935,
+        "mean_treated": 0.14873521297984757,
+        "smd": 0.00395850560137286,
+        "variance_ratio": 1.0078775743996942
+      },
+      {
+        "covariate": "zip=surburban",
+        "imbalanced": false,
+        "mean_control": 0.4517506805594668,
+        "mean_treated": 0.45120867816898114,
+        "smd": -0.0010891197386245202,
+        "variance_ratio": 0.9997876374444041
+      },
+      {
+        "covariate": "zip=urban",
+        "imbalanced": false,
+        "mean_control": 0.4009199286585938,
+        "mean_treated": 0.40005610885117127,
+        "smd": -0.0017628666291550237,
+        "variance_ratio": 0.9992842093690041
+      },
+      {
+        "covariate": "channel=multichannel",
+        "imbalanced": false,
+        "mean_control": 0.12231296348446447,
+        "mean_treated": 0.12058727264225931,
+        "smd": -0.00528289712504171,
+        "variance_ratio": 0.9878296257715715
+      },
+      {
+        "covariate": "channel=phone",
+        "imbalanced": false,
+        "mean_control": 0.4377640101379893,
+        "mean_treated": 0.4420442324776733,
+        "smd": 0.008622833281250204,
+        "variance_ratio": 1.0020901734087884
+      },
+      {
+        "covariate": "channel=web",
+        "imbalanced": false,
+        "mean_control": 0.4399230263775462,
+        "mean_treated": 0.43736849488006735,
+        "smd": -0.005147863897421752,
+        "variance_ratio": 0.9987277823345891
+      }
+    ]
+  },
+  "balance_max_abs_smd": 0.01365900039927897,
+  "balance_ok": true,
+  "config": {
+    "alpha": 0.05,
+    "control_arm": "No E-Mail",
+    "cuped_covariate": "history",
+    "economics": {
+      "cost_per_email": 0.1,
+      "customers": 1000000,
+      "gross_margin": 0.3
+    },
+    "multiplicity": "holm",
+    "primary_metric": "spend",
+    "regression_covariates": [
+      "recency",
+      "history",
+      "mens",
+      "womens",
+      "newbie"
+    ],
+    "secondary_metrics": [
+      "visit",
+      "conversion"
+    ],
+    "treatment_arms": [
+      "Mens E-Mail",
+      "Womens E-Mail"
+    ]
+  },
+  "control_rates": {
+    "conversion": 0.005726086548390125,
+    "spend": 0.6527893551112361,
+    "visit": 0.10616727682343002
+  },
+  "dataset": "Hillstrom MineThatData E-Mail (2008), 64,000 customers",
+  "decisions": {
+    "Mens E-Mail": {
+      "profit_ci": [
+        0.04554191977052227,
+        0.21635437376619973
+      ],
+      "profit_per_customer": 0.130948146768361,
+      "reason": "the primary metric is significant after Holm correction and the profit CI is above zero",
+      "total_profit": 130948.146768361,
+      "total_profit_ci": [
+        45541.91977052227,
+        216354.37376619974
+      ],
+      "verdict": "launch"
+    },
+    "Womens E-Mail": {
+      "profit_ci": [
+        -0.049312963034866375,
+        0.1039602925968244
+      ],
+      "profit_per_customer": 0.027323664780979,
+      "reason": "revenue lift is real but profit CI straddles zero under the stated economics",
+      "total_profit": 27323.664780979,
+      "total_profit_ci": [
+        -49312.96303486638,
+        103960.29259682441
+      ],
+      "verdict": "keep testing"
+    }
+  },
+  "effects": {
+    "Mens E-Mail": {
+      "conversion": {
+        "alpha": 0.05,
+        "ci_high": 0.008640723396917826,
+        "ci_low": 0.005014344671481533,
+        "estimate": 0.006805006519615695,
+        "extra": {
+          "rate_control": 0.005726086548390125,
+          "rate_treatment": 0.01253109306800582,
+          "relative_lift": 1.188421876286328
+        },
+        "method": "diff_in_proportions (Newcombe CI, pooled z p-value)",
+        "n": 42613,
+        "p_value": 1.5232235005955425e-13,
+        "se": 0.000920851175531638
+      },
+      "conversion_cuped": {
+        "alpha": 0.05,
+        "ci_high": 0.00858757354697249,
+        "ci_low": 0.004979292173115303,
+        "estimate": 0.006783432860043896,
+        "extra": {
+          "rho": 0.02979588107299293,
+          "theta": 1.1044850348990347e-05,
+          "variance_reduction": 0.0008877945289156308
+        },
+        "method": "CUPED",
+        "n": 42613,
+        "p_value": 1.7472135756027445e-13,
+        "se": 0.000920467142482419
+      },
+      "n_control": 21306,
+      "n_treatment": 21307,
+      "spend": {
+        "alpha": 0.05,
+        "ci_high": 1.0545145792206658,
+        "ci_low": 0.4851397325684076,
+        "estimate": 0.7698271558945368,
+        "extra": {
+          "df": 36671.15797736051,
+          "mean_control": 0.6527893551112361,
+          "mean_treatment": 1.422616511005773
+        },
+        "method": "diff_in_means (Welch)",
+        "n": 42613,
+        "p_value": 1.1638149682254823e-07,
+        "se": 0.14524656024868676
+      },
+      "spend_cuped": {
+        "alpha": 0.05,
+        "ci_high": 1.0520641450598198,
+        "ci_low": 0.4828128537957844,
+        "estimate": 0.7674384994278021,
+        "extra": {
+          "rho": 0.020922546956069963,
+          "theta": 0.0012228965198244435,
+          "variance_reduction": 0.00043775297112880196
+        },
+        "method": "CUPED",
+        "n": 42613,
+        "p_value": 1.2653144672519603e-07,
+        "se": 0.14521504219411457
+      },
+      "spend_lin_adjusted": {
+        "alpha": 0.05,
+        "ci_high": 1.051224987705922,
+        "ci_low": 0.4825577998091068,
+        "estimate": 0.7668913937575145,
+        "extra": {
+          "n_covariates": 9
+        },
+        "method": "Lin regression adjustment (HC2)",
+        "n": 42613,
+        "p_value": 1.253095698769658e-07,
+        "se": 0.14506670341452235
+      },
+      "spend_relative_lift": {
+        "alpha": 0.05,
+        "ci_high": 1.8142718211252298,
+        "ci_low": 0.5443057195987829,
+        "estimate": 1.1792887703620063,
+        "extra": {},
+        "method": "relative_lift (delta method)",
+        "n": 42613,
+        "p_value": 0.00027259600227269896,
+        "se": 0.32397689741846725
+      },
+      "visit": {
+        "alpha": 0.05,
+        "ci_high": 0.08322674127411137,
+        "ci_low": 0.06995330808373154,
+        "estimate": 0.07658956365153125,
+        "extra": {
+          "rate_control": 0.10616727682343002,
+          "rate_treatment": 0.18275684047496127,
+          "relative_lift": 0.721404616781399
+        },
+        "method": "diff_in_proportions (Newcombe CI, pooled z p-value)",
+        "n": 42613,
+        "p_value": 5.685165482802319e-112,
+        "se": 0.0033858083545245127
+      },
+      "visit_cuped": {
+        "alpha": 0.05,
+        "ci_high": 0.08303280974142933,
+        "ci_low": 0.0697894851774067,
+        "estimate": 0.07641114745941802,
+        "extra": {
+          "rho": 0.06666246893410172,
+          "theta": 9.134195036168932e-05,
+          "variance_reduction": 0.004443884764390171
+        },
+        "method": "CUPED",
+        "n": 42613,
+        "p_value": 1.439859297028472e-112,
+        "se": 0.0033783604804229414
+      }
+    },
+    "Womens E-Mail": {
+      "conversion": {
+        "alpha": 0.05,
+        "ci_high": 0.00474547131367293,
+        "ci_low": 0.0015016571318770087,
+        "estimate": 0.003111057511085258,
+        "extra": {
+          "rate_control": 0.005726086548390125,
+          "rate_treatment": 0.008837144059475383,
+          "relative_lift": 0.5433130436982172
+        },
+        "method": "diff_in_proportions (Newcombe CI, pooled z p-value)",
+        "n": 42693,
+        "p_value": 0.00015710512910668448,
+        "se": 0.0008226578153482761
+      },
+      "conversion_cuped": {
+        "alpha": 0.05,
+        "ci_high": 0.004708560932076873,
+        "ci_low": 0.0014847187321718309,
+        "estimate": 0.003096639832124352,
+        "extra": {
+          "rho": 0.026040436409410842,
+          "theta": 8.716959693215482e-06,
+          "variance_reduction": 0.000678104328392326
+        },
+        "method": "CUPED",
+        "n": 42693,
+        "p_value": 0.00016653404122441578,
+        "se": 0.0008223995081154022
+      },
+      "n_control": 21306,
+      "n_treatment": 21387,
+      "spend": {
+        "alpha": 0.05,
+        "ci_high": 0.6798676419894147,
+        "ci_low": 0.16895678988377877,
+        "estimate": 0.4244122159365967,
+        "extra": {
+          "df": 40064.88440653066,
+          "mean_control": 0.6527893551112361,
+          "mean_treatment": 1.0772015710478329
+        },
+        "method": "diff_in_means (Welch)",
+        "n": 42693,
+        "p_value": 0.0011293971023632475,
+        "se": 0.13033285852919116
+      },
+      "spend_cuped": {
+        "alpha": 0.05,
+        "ci_high": 0.6781080546729097,
+        "ci_low": 0.1672937916400858,
+        "estimate": 0.42270092315649777,
+        "extra": {
+          "rho": 0.019508878564568607,
+          "theta": 0.001034651293586205,
+          "variance_reduction": 0.00038059634284703936
+        },
+        "method": "CUPED",
+        "n": 42693,
+        "p_value": 0.0011802047342596457,
+        "se": 0.13030821906506285
+      },
+      "spend_lin_adjusted": {
+        "alpha": 0.05,
+        "ci_high": 0.6799000568557425,
+        "ci_low": 0.16941827956900424,
+        "estimate": 0.4246591682123734,
+        "extra": {
+          "n_covariates": 9
+        },
+        "method": "Lin regression adjustment (HC2)",
+        "n": 42693,
+        "p_value": 0.0011110747505517315,
+        "se": 0.13022364241430878
+      },
+      "spend_relative_lift": {
+        "alpha": 0.05,
+        "ci_high": 1.1511761304282795,
+        "ci_low": 0.14912759730109282,
+        "estimate": 0.6501518638646862,
+        "extra": {},
+        "method": "relative_lift (delta method)",
+        "n": 42693,
+        "p_value": 0.010979884496001058,
+        "se": 0.2556293230465503
+      },
+      "visit": {
+        "alpha": 0.05,
+        "ci_high": 0.051574342962213596,
+        "ci_low": 0.03889409535998813,
+        "estimate": 0.045233106587052985,
+        "extra": {
+          "rate_control": 0.10616727682343002,
+          "rate_treatment": 0.151400383410483,
+          "relative_lift": 0.4260550702669102
+        },
+        "method": "diff_in_proportions (Newcombe CI, pooled z p-value)",
+        "n": 42693,
+        "p_value": 3.1824031593349214e-44,
+        "se": 0.0032343863583279126
+      },
+      "visit_cuped": {
+        "alpha": 0.05,
+        "ci_high": 0.05142185190315848,
+        "ci_low": 0.038768032801251434,
+        "estimate": 0.04509494235220496,
+        "extra": {
+          "rho": 0.0633442957280449,
+          "theta": 8.353439339856918e-05,
+          "variance_reduction": 0.004012499801281932
+        },
+        "method": "CUPED",
+        "n": 42693,
+        "p_value": 2.9885306570521294e-44,
+        "se": 0.0032279809009645444
+      }
+    }
+  },
+  "git_commit_at_run": "0e88098",
+  "mde_80pct_power": {
+    "conversion_rel": 0.39083672661453506,
+    "spend_abs": 0.3145457661706895,
+    "visit_rel": 0.08012773117420822
+  },
+  "multiplicity": [
+    {
+      "bh_p": 1.7457224523382233e-07,
+      "comparison": "Mens E-Mail / spend",
+      "holm_p": 3.4914449046764466e-07,
+      "holm_reject": true,
+      "raw_p": 1.1638149682254823e-07
+    },
+    {
+      "bh_p": 3.4110992896813914e-111,
+      "comparison": "Mens E-Mail / visit",
+      "holm_p": 3.4110992896813914e-111,
+      "holm_reject": true,
+      "raw_p": 5.685165482802319e-112
+    },
+    {
+      "bh_p": 3.046447001191085e-13,
+      "comparison": "Mens E-Mail / conversion",
+      "holm_p": 6.09289400238217e-13,
+      "holm_reject": true,
+      "raw_p": 1.5232235005955425e-13
+    },
+    {
+      "bh_p": 0.0011293971023632475,
+      "comparison": "Womens E-Mail / spend",
+      "holm_p": 0.0011293971023632475,
+      "holm_reject": true,
+      "raw_p": 0.0011293971023632475
+    },
+    {
+      "bh_p": 9.547209478004765e-44,
+      "comparison": "Womens E-Mail / visit",
+      "holm_p": 1.5912015796674606e-43,
+      "holm_reject": true,
+      "raw_p": 3.1824031593349214e-44
+    },
+    {
+      "bh_p": 0.00018852615492802137,
+      "comparison": "Womens E-Mail / conversion",
+      "holm_p": 0.00031421025821336897,
+      "holm_reject": true,
+      "raw_p": 0.00015710512910668448
+    }
+  ],
+  "recommended_arm": "Mens E-Mail",
+  "srm": {
+    "chi2": 0.20253125000000002,
+    "dof": 2,
+    "expected": [
+      21333.333333333332,
+      21333.333333333332,
+      21333.333333333332
+    ],
+    "expected_ratios": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "observed": [
+      21306,
+      21307,
+      21387
+    ],
+    "observed_ratios": [
+      0.33290625,
+      0.332921875,
+      0.334171875
+    ],
+    "p_value": 0.9036929575604196,
+    "passed": true,
+    "threshold": 0.001
+  }
+}
