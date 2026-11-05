@@ -66,7 +66,11 @@ class ValidationResult:
         return abs(self.coverage - target) <= tol_mcse * mcse
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        """Serialisable summary. Wall-clock ``seconds`` is excluded so saved results are
+        byte-reproducible across runs."""
+        d = asdict(self)
+        d.pop("seconds")
+        return d
 
 
 @dataclass(frozen=True)

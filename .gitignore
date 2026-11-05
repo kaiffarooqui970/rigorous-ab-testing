@@ -21,3 +21,4 @@ service-account*.json
 .mypy_cache/
 # Downloaded public datasets (Hillstrom, Criteo, GA360 pulls) — fetched at runtime, never committed
 data/cache/
+results/**/*_quick.json

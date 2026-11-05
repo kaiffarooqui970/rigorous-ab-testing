@@ -103,6 +103,7 @@ def simpsons_paradox_check(
     daily_device_channel: pd.DataFrame,
     overall_diff: float,
     min_sessions_per_arm: int = 1000,
+    alpha: float = 0.05,
 ) -> SimpsonsCheckResult:
     """Re-runs the mobile-vs-desktop proportions test within each channel.
 
@@ -151,7 +152,7 @@ def simpsons_paradox_check(
         )
 
     any_reversal = any(
-        (not s.direction_matches_overall) and s.p_value < 0.05 for s in segments
+        (not s.direction_matches_overall) and s.p_value < alpha for s in segments
     )
 
     return SimpsonsCheckResult(
@@ -219,7 +220,7 @@ def simulate_peeking_inflation(
                 continue
             se = np.sqrt(p_pool * (1 - p_pool) * (2 / n))
             z = (s_b / n - s_a / n) / se
-            p_value = 2 * (1 - stats.norm.cdf(abs(z)))
+            p_value = 2 * stats.norm.sf(abs(z))
 
             if p_value < alpha:
                 naive_rejections[sim] = True

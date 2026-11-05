@@ -1,0 +1,733 @@
+{
+  "A_effects": {
+    "binary_effect": {
+      "results": {
+        "newcombe": {
+          "alpha": 0.05,
+          "bias": 5.076864112348443e-05,
+          "bias_mcse": 0.00010200272495770083,
+          "coverage": 0.949,
+          "coverage_mcse": 0.004919298730510276,
+          "empirical_sd": 0.0045617005379126685,
+          "estimator": "newcombe",
+          "mean_estimate": 0.010050768641123482,
+          "mean_se": 0.0045543557226929285,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.011005816643938786,
+          "rejection_rate": 0.588,
+          "rmse": 0.004560842542405455,
+          "se_ratio": 0.9983898953561952,
+          "truth": 0.01
+        },
+        "wald": {
+          "alpha": 0.05,
+          "bias": 5.076864112348443e-05,
+          "bias_mcse": 0.00010200272495770083,
+          "coverage": 0.949,
+          "coverage_mcse": 0.004919298730510276,
+          "empirical_sd": 0.0045617005379126685,
+          "estimator": "wald",
+          "mean_estimate": 0.010050768641123482,
+          "mean_se": 0.0045543557226929285,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.01100780972764337,
+          "rejection_rate": 0.5875,
+          "rmse": 0.004560842542405455,
+          "se_ratio": 0.9983898953561952,
+          "truth": 0.01
+        }
+      },
+      "spec": {
+        "baseline": 0.05,
+        "confounding": 0.0,
+        "covariate_effect": 1.0,
+        "effect": 0.01,
+        "hte": 0.0,
+        "hte_form": "linear",
+        "n": 10000,
+        "n_covariates": 3,
+        "noise_sd": 1.0,
+        "outcome": "binary",
+        "pre_period_noise": 0.5,
+        "srm_drop": 0.0,
+        "srm_mechanism": "random",
+        "treat_prob": 0.5,
+        "unobserved_confounding": 0.0
+      }
+    },
+    "binary_null": {
+      "results": {
+        "newcombe": {
+          "alpha": 0.05,
+          "bias": -0.00015284357437452722,
+          "bias_mcse": 9.682728879889325e-05,
+          "coverage": 0.9525,
+          "coverage_mcse": 0.00475624589355933,
+          "empirical_sd": 0.004330247996626586,
+          "estimator": "newcombe",
+          "mean_estimate": -0.00015284357437452722,
+          "mean_se": 0.004355633512985979,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.004756245893559331,
+          "rejection_rate": 0.0475,
+          "rmse": 0.004331862572457718,
+          "se_ratio": 1.0058623700950082,
+          "truth": 0.0
+        },
+        "wald": {
+          "alpha": 0.05,
+          "bias": -0.00015284357437452722,
+          "bias_mcse": 9.682728879889325e-05,
+          "coverage": 0.9525,
+          "coverage_mcse": 0.00475624589355933,
+          "empirical_sd": 0.004330247996626586,
+          "estimator": "wald",
+          "mean_estimate": -0.00015284357437452722,
+          "mean_se": 0.004355633512985979,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.004756245893559331,
+          "rejection_rate": 0.0475,
+          "rmse": 0.004331862572457718,
+          "se_ratio": 1.0058623700950082,
+          "truth": 0.0
+        }
+      },
+      "spec": {
+        "baseline": 0.05,
+        "confounding": 0.0,
+        "covariate_effect": 1.0,
+        "effect": 0.0,
+        "hte": 0.0,
+        "hte_form": "linear",
+        "n": 10000,
+        "n_covariates": 3,
+        "noise_sd": 1.0,
+        "outcome": "binary",
+        "pre_period_noise": 0.5,
+        "srm_drop": 0.0,
+        "srm_mechanism": "random",
+        "treat_prob": 0.5,
+        "unobserved_confounding": 0.0
+      }
+    },
+    "binary_small_counts": {
+      "results": {
+        "newcombe": {
+          "alpha": 0.05,
+          "bias": -2.939924692742494e-05,
+          "bias_mcse": 0.00018432027488984724,
+          "coverage": 0.972,
+          "coverage_mcse": 0.0036889022757454573,
+          "empirical_sd": 0.00824305328570292,
+          "estimator": "newcombe",
+          "mean_estimate": -2.939924692742494e-05,
+          "mean_se": 0.007986089490114095,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.004635461142108733,
+          "rejection_rate": 0.045,
+          "rmse": 0.00824104470458219,
+          "se_ratio": 0.9688266244700234,
+          "truth": 0.0
+        },
+        "wald": {
+          "alpha": 0.05,
+          "bias": -2.9487710057597783e-05,
+          "bias_mcse": 0.00018487503519186272,
+          "coverage": 0.9488465396188566,
+          "coverage_mcse": 0.004933702077004959,
+          "empirical_sd": 0.00825545181092845,
+          "estimator": "wald",
+          "mean_estimate": -2.9487710057597783e-05,
+          "mean_se": 0.008010119849663086,
+          "n_failed": 6,
+          "n_reps": 2000,
+          "rejection_mcse": 0.004933702077004959,
+          "rejection_rate": 0.05115346038114343,
+          "rmse": 0.008253434154881776,
+          "se_ratio": 0.9702824307034781,
+          "truth": 0.0
+        }
+      },
+      "spec": {
+        "baseline": 0.01,
+        "confounding": 0.0,
+        "covariate_effect": 0.0,
+        "effect": 0.0,
+        "hte": 0.0,
+        "hte_form": "linear",
+        "n": 600,
+        "n_covariates": 3,
+        "noise_sd": 1.0,
+        "outcome": "binary",
+        "pre_period_noise": 0.5,
+        "srm_drop": 0.0,
+        "srm_mechanism": "random",
+        "treat_prob": 0.5,
+        "unobserved_confounding": 0.0
+      }
+    },
+    "continuous_effect": {
+      "results": {
+        "diff_in_means": {
+          "alpha": 0.05,
+          "bias": -0.0011342860282437049,
+          "bias_mcse": 0.0014777827256982029,
+          "coverage": 0.95,
+          "coverage_mcse": 0.004873397172404485,
+          "empirical_sd": 0.06608845261272214,
+          "estimator": "diff_in_means",
+          "mean_estimate": 0.1488657139717563,
+          "mean_se": 0.06705554800694365,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.010980983562504773,
+          "rejection_rate": 0.594,
+          "rmse": 0.06608166411156363,
+          "se_ratio": 1.0146333490343415,
+          "truth": 0.14999999999999994
+        }
+      },
+      "spec": {
+        "baseline": 10.0,
+        "confounding": 0.0,
+        "covariate_effect": 1.0,
+        "effect": 0.15,
+        "hte": 0.0,
+        "hte_form": "linear",
+        "n": 2000,
+        "n_covariates": 3,
+        "noise_sd": 1.0,
+        "outcome": "continuous",
+        "pre_period_noise": 0.5,
+        "srm_drop": 0.0,
+        "srm_mechanism": "random",
+        "treat_prob": 0.5,
+        "unobserved_confounding": 0.0
+      }
+    },
+    "continuous_null": {
+      "results": {
+        "diff_in_means": {
+          "alpha": 0.05,
+          "bias": -0.0019140110347476416,
+          "bias_mcse": 0.0015473245498397645,
+          "coverage": 0.95,
+          "coverage_mcse": 0.004873397172404485,
+          "empirical_sd": 0.0691984575339195,
+          "estimator": "diff_in_means",
+          "mean_estimate": -0.0019140110347476416,
+          "mean_se": 0.067079120426591,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.004873397172404482,
+          "rejection_rate": 0.05,
+          "rmse": 0.06920762783141941,
+          "se_ratio": 0.9693730585499013,
+          "truth": 0.0
+        }
+      },
+      "spec": {
+        "baseline": 10.0,
+        "confounding": 0.0,
+        "covariate_effect": 1.0,
+        "effect": 0.0,
+        "hte": 0.0,
+        "hte_form": "linear",
+        "n": 2000,
+        "n_covariates": 3,
+        "noise_sd": 1.0,
+        "outcome": "continuous",
+        "pre_period_noise": 0.5,
+        "srm_drop": 0.0,
+        "srm_mechanism": "random",
+        "treat_prob": 0.5,
+        "unobserved_confounding": 0.0
+      }
+    }
+  },
+  "B_cuped": {
+    "moderate": {
+      "covariate_effect": 0.5,
+      "empirical_variance_reduction_cuped": 0.2247021492900827,
+      "empirical_variance_reduction_lin": 0.2533900695303327,
+      "results": {
+        "cuped": {
+          "alpha": 0.05,
+          "bias": 0.0005694575595121221,
+          "bias_mcse": 0.0010950520240860134,
+          "coverage": 0.953,
+          "coverage_mcse": 0.004732388403332932,
+          "empirical_sd": 0.04897221529510126,
+          "estimator": "cuped",
+          "mean_estimate": 0.10056945755951213,
+          "mean_se": 0.04829531205024171,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.011138918259867068,
+          "rejection_rate": 0.543,
+          "rmse": 0.04896328230303173,
+          "se_ratio": 0.9861778104016612,
+          "truth": 0.10000000000000002
+        },
+        "lin": {
+          "alpha": 0.05,
+          "bias": 0.0005431960421171163,
+          "bias_mcse": 0.0010746012546582154,
+          "coverage": 0.9505,
+          "coverage_mcse": 0.004850244839180801,
+          "empirical_sd": 0.04805762908244664,
+          "estimator": "lin",
+          "mean_estimate": 0.10054319604211712,
+          "mean_se": 0.04747054099683334,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.011102229505824495,
+          "rejection_rate": 0.559,
+          "rmse": 0.0480486837188042,
+          "se_ratio": 0.9877836652198113,
+          "truth": 0.10000000000000002
+        },
+        "unadjusted": {
+          "alpha": 0.05,
+          "bias": 0.0005010688621335262,
+          "bias_mcse": 0.0012436565521316272,
+          "coverage": 0.946,
+          "coverage_mcse": 0.005053909377897473,
+          "empirical_sd": 0.05561801182458659,
+          "estimator": "unadjusted",
+          "mean_estimate": 0.10050106886213353,
+          "mean_se": 0.054771287198685556,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.011145397031958978,
+          "rejection_rate": 0.4605,
+          "rmse": 0.05560636319437545,
+          "se_ratio": 0.9847760716695247,
+          "truth": 0.10000000000000002
+        }
+      },
+      "rho_y_pre": 0.47315398234168876,
+      "theoretical_variance_reduction": 0.22387469100579913
+    },
+    "strong": {
+      "covariate_effect": 2.0,
+      "empirical_variance_reduction_cuped": 0.7516170577710333,
+      "empirical_variance_reduction_lin": 0.7510266224812285,
+      "results": {
+        "cuped": {
+          "alpha": 0.05,
+          "bias": 0.0009902775254666514,
+          "bias_mcse": 0.001114001830422348,
+          "coverage": 0.9505,
+          "coverage_mcse": 0.004850244839180801,
+          "empirical_sd": 0.04981967639767127,
+          "estimator": "cuped",
+          "mean_estimate": 0.10099027752546665,
+          "mean_se": 0.04970886411035471,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.011166909823223254,
+          "rejection_rate": 0.5245,
+          "rmse": 0.04981706340068576,
+          "se_ratio": 0.9977757324950882,
+          "truth": 0.10000000000000002
+        },
+        "lin": {
+          "alpha": 0.05,
+          "bias": 0.0010094913499846545,
+          "bias_mcse": 0.001115325100786267,
+          "coverage": 0.9505,
+          "coverage_mcse": 0.004850244839180801,
+          "empirical_sd": 0.04987885484739795,
+          "estimator": "lin",
+          "mean_estimate": 0.10100949134998467,
+          "mean_se": 0.049743161060980985,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.011165790388503627,
+          "rejection_rate": 0.5255,
+          "rmse": 0.04987660056171675,
+          "se_ratio": 0.9972795328434841,
+          "truth": 0.10000000000000002
+        },
+        "unadjusted": {
+          "alpha": 0.05,
+          "bias": 0.0028919973735538214,
+          "bias_mcse": 0.0022352444273202954,
+          "coverage": 0.954,
+          "coverage_mcse": 0.0046842288586276416,
+          "empirical_sd": 0.09996316971631539,
+          "estimator": "unadjusted",
+          "mean_estimate": 0.10289199737355383,
+          "mean_se": 0.10246462977962027,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.00845786616115436,
+          "rejection_rate": 0.173,
+          "rmse": 0.09998001115668896,
+          "se_ratio": 1.0250238169758297,
+          "truth": 0.10000000000000002
+        }
+      },
+      "rho_y_pre": 0.8754676545420003,
+      "theoretical_variance_reduction": 0.7664436141492711
+    },
+    "weak": {
+      "covariate_effect": 0.0,
+      "empirical_variance_reduction_cuped": 0.10401569997130788,
+      "empirical_variance_reduction_lin": 0.21225165359370035,
+      "results": {
+        "cuped": {
+          "alpha": 0.05,
+          "bias": -9.47180623497056e-05,
+          "bias_mcse": 0.0010991520949482994,
+          "coverage": 0.9415,
+          "coverage_mcse": 0.0052477495176503994,
+          "empirical_sd": 0.04915557603831401,
+          "estimator": "cuped",
+          "mean_estimate": 0.0999052819376503,
+          "mean_se": 0.04741610877567988,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.011114944894150398,
+          "rejection_rate": 0.554,
+          "rmse": 0.049143376886839764,
+          "se_ratio": 0.9646130225128821,
+          "truth": 0.10000000000000002
+        },
+        "lin": {
+          "alpha": 0.05,
+          "bias": -0.00047635034587609535,
+          "bias_mcse": 0.001030626588138403,
+          "coverage": 0.942,
+          "coverage_mcse": 0.005226662414964259,
+          "empirical_sd": 0.046091022209922956,
+          "estimator": "lin",
+          "mean_estimate": 0.09952364965412391,
+          "mean_se": 0.04477326876471626,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.01090642012761291,
+          "rejection_rate": 0.61,
+          "rmse": 0.046081960102012265,
+          "se_ratio": 0.9714097587333831,
+          "truth": 0.10000000000000002
+        },
+        "unadjusted": {
+          "alpha": 0.05,
+          "bias": -0.0006273528924034712,
+          "bias_mcse": 0.0011612015105481764,
+          "coverage": 0.9405,
+          "coverage_mcse": 0.005289600646551685,
+          "empirical_sd": 0.05193051026322323,
+          "estimator": "unadjusted",
+          "mean_estimate": 0.09937264710759654,
+          "mean_se": 0.0499944932029384,
+          "n_failed": 0,
+          "n_reps": 2000,
+          "rejection_mcse": 0.011179082028503056,
+          "rejection_rate": 0.5075,
+          "rmse": 0.051921316228522564,
+          "se_ratio": 0.9627190826650533,
+          "truth": 0.10000000000000002
+        }
+      },
+      "rho_y_pre": 0.31791709242972777,
+      "theoretical_variance_reduction": 0.10107127765897207
+    }
+  },
+  "C_sequential": {
+    "alternative": [
+      {
+        "boundaries": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1.959963984540054
+        ],
+        "expected_sample_fraction": 1.0,
+        "rejection_mcse": 0.0012652192817847823,
+        "rejection_rate": 0.79987,
+        "strategy": "single_look"
+      },
+      {
+        "boundaries": [
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054
+        ],
+        "expected_sample_fraction": 0.500954,
+        "rejection_mcse": 0.0010755359129289918,
+        "rejection_rate": 0.8665,
+        "strategy": "naive_peeking"
+      },
+      {
+        "boundaries": [
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114
+        ],
+        "expected_sample_fraction": 0.7628630000000001,
+        "rejection_mcse": 0.0015619753131851989,
+        "rejection_rate": 0.57761,
+        "strategy": "bonferroni"
+      },
+      {
+        "boundaries": [
+          6.991340992446863,
+          4.876885152828163,
+          3.9296822965426816,
+          3.3670790834473987,
+          2.9893298313925154,
+          2.714808954743747,
+          2.504077275122247,
+          2.3358290391280483,
+          2.1975032889280786,
+          2.0811757526539383
+        ],
+        "expected_sample_fraction": 0.773917,
+        "rejection_mcse": 0.0012984317371352258,
+        "rejection_rate": 0.78532,
+        "strategy": "obrien_fleming"
+      },
+      {
+        "boundaries": [
+          2.655110047968493,
+          2.623241951732189,
+          2.589636681152075,
+          2.5620779836299055,
+          2.5397438675770014,
+          2.5213947431397177,
+          2.5060675525530276,
+          2.4930659947308804,
+          2.481887064022106,
+          2.4721618457984107
+        ],
+        "expected_sample_fraction": 0.691276,
+        "rejection_mcse": 0.0014482942653342244,
+        "rejection_rate": 0.70061,
+        "strategy": "pocock"
+      }
+    ],
+    "baseline": 0.05,
+    "n_looks": 10,
+    "n_per_look_per_arm": 3124,
+    "n_sims": 100000,
+    "null": [
+      {
+        "boundaries": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1.959963984540054
+        ],
+        "expected_sample_fraction": 1.0,
+        "rejection_mcse": 0.0006831628912638625,
+        "rejection_rate": 0.04908,
+        "strategy": "single_look"
+      },
+      {
+        "boundaries": [
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054,
+          1.959963984540054
+        ],
+        "expected_sample_fraction": 0.8814759999999999,
+        "rejection_mcse": 0.0012446945183457667,
+        "rejection_rate": 0.19166,
+        "strategy": "naive_peeking"
+      },
+      {
+        "boundaries": [
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114,
+          2.8070337683438114
+        ],
+        "expected_sample_fraction": 0.9851610000000001,
+        "rejection_mcse": 0.0005035120564594258,
+        "rejection_rate": 0.02603,
+        "strategy": "bonferroni"
+      },
+      {
+        "boundaries": [
+          6.991340992446863,
+          4.876885152828163,
+          3.9296822965426816,
+          3.3670790834473987,
+          2.9893298313925154,
+          2.714808954743747,
+          2.504077275122247,
+          2.3358290391280483,
+          2.1975032889280786,
+          2.0811757526539383
+        ],
+        "expected_sample_fraction": 0.991058,
+        "rejection_mcse": 0.0006872402054594885,
+        "rejection_rate": 0.0497,
+        "strategy": "obrien_fleming"
+      },
+      {
+        "boundaries": [
+          2.655110047968493,
+          2.623241951732189,
+          2.589636681152075,
+          2.5620779836299055,
+          2.5397438675770014,
+          2.5213947431397177,
+          2.5060675525530276,
+          2.4930659947308804,
+          2.481887064022106,
+          2.4721618457984107
+        ],
+        "expected_sample_fraction": 0.973325,
+        "rejection_mcse": 0.000691417995137529,
+        "rejection_rate": 0.05034,
+        "strategy": "pocock"
+      }
+    ],
+    "relative_lift": 0.1
+  },
+  "D_multiplicity": {
+    "all_null": {
+      "bh": {
+        "fdr": 0.04625,
+        "fwer": 0.04625,
+        "power_per_true_effect": null
+      },
+      "holm": {
+        "fdr": 0.04405,
+        "fwer": 0.04405,
+        "power_per_true_effect": null
+      },
+      "none": {
+        "fdr": 0.3456,
+        "fwer": 0.3456,
+        "power_per_true_effect": null
+      }
+    },
+    "config": {
+      "correlation": 0.3,
+      "n_metrics": 10,
+      "n_sims": 20000,
+      "true_effect_z": 3.0
+    },
+    "three_true": {
+      "bh": {
+        "fdr": 0.03632791666666666,
+        "fwer": 0.0973,
+        "power_per_true_effect": 0.6760833333333334
+      },
+      "holm": {
+        "fdr": 0.019693333333333334,
+        "fwer": 0.0417,
+        "power_per_true_effect": 0.5914166666666667
+      },
+      "none": {
+        "fdr": 0.09772761904761905,
+        "fwer": 0.2715,
+        "power_per_true_effect": 0.8486
+      }
+    }
+  },
+  "E_srm": {
+    "detection_rate_by_drop": {
+      "0.0": 0.0,
+      "0.005": 0.001,
+      "0.01": 0.043,
+      "0.02": 0.462
+    },
+    "n_units": 100000,
+    "selective_srm_example": {
+      "counts_control_treatment_seed0": [
+        9979,
+        9525
+      ],
+      "n_check_reps": 500,
+      "naive_estimator": {
+        "alpha": 0.05,
+        "bias": 0.04134474094566199,
+        "bias_mcse": 0.0009733049959026223,
+        "coverage": 0.514,
+        "coverage_mcse": 0.022351912669836556,
+        "empirical_sd": 0.02176376133678418,
+        "estimator": "diff_in_means",
+        "mean_estimate": 0.04134474094566199,
+        "mean_se": 0.021487607352860844,
+        "n_failed": 0,
+        "n_reps": 500,
+        "rejection_mcse": 0.022351912669836556,
+        "rejection_rate": 0.486,
+        "rmse": 0.0467129702413939,
+        "se_ratio": 0.987311293316905,
+        "truth": 0.0
+      },
+      "pre_metric_smd_gt_0.05_flag_rate": 0.14,
+      "spec": {
+        "baseline": 10.0,
+        "confounding": 0.0,
+        "covariate_effect": 1.0,
+        "effect": 0.0,
+        "hte": 0.0,
+        "hte_form": "linear",
+        "n": 20000,
+        "n_covariates": 3,
+        "noise_sd": 1.0,
+        "outcome": "continuous",
+        "pre_period_noise": 0.5,
+        "srm_drop": 0.05,
+        "srm_mechanism": "selective",
+        "treat_prob": 0.5,
+        "unobserved_confounding": 0.0
+      },
+      "srm_flag_rate": 0.592,
+      "srm_p_value_seed0": 0.0011506939846923942
+    },
+    "threshold": 0.001
+  },
+  "quick": false
+}

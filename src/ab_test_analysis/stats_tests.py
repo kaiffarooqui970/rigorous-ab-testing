@@ -55,7 +55,8 @@ def two_proportion_ztest(
     p_pool = (successes_a + successes_b) / (n_a + n_b)
     se_pool = np.sqrt(p_pool * (1 - p_pool) * (1 / n_a + 1 / n_b))
     z_stat = (rate_b - rate_a) / se_pool
-    p_value = 2 * (1 - stats.norm.cdf(abs(z_stat)))
+    # norm.sf instead of 1 - cdf: the latter underflows to exactly 0 for |z| > ~8.3.
+    p_value = 2 * stats.norm.sf(abs(z_stat))
 
     try:
         ci_low, ci_high = confint_proportions_2indep(
