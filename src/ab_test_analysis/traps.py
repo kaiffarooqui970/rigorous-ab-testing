@@ -23,7 +23,6 @@ from scipy import stats
 
 from ab_test_analysis.stats_tests import two_proportion_ztest
 
-
 # ---------------------------------------------------------------------------
 # 1. Novelty effect
 # ---------------------------------------------------------------------------

@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 
 from ab_test_analysis.traps import (

@@ -16,12 +16,18 @@ Two shapes are needed, not one, because they serve different tests:
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pandas as pd
-from google.cloud import bigquery
 
-PROJECT_ID = "gen-lang-client-0542921612"
+if TYPE_CHECKING:  # pragma: no cover
+    from google.cloud import bigquery
+
+# Billing project for BigQuery queries. The original hardcoded project is kept as a
+# fallback so the original notebook still runs unchanged; set GCP_PROJECT to override.
+PROJECT_ID = os.environ.get("GCP_PROJECT", "gen-lang-client-0542921612")
 DATASET = "bigquery-public-data.google_analytics_sample"
 TABLE_WILDCARD = f"{DATASET}.ga_sessions_*"
 
@@ -37,6 +43,10 @@ REVENUE_SAMPLE_PATH = PROCESSED_DIR / "revenue_sample.csv"
 
 
 def _client() -> bigquery.Client:
+    # Imported lazily so the package (and CI) does not need google-cloud-bigquery
+    # unless a live pull is actually requested. Install with: pip install -e ".[bigquery]"
+    from google.cloud import bigquery
+
     return bigquery.Client(project=PROJECT_ID)
 
 
