@@ -26,6 +26,7 @@ CRITICAL = "#d03b3b"
 
 
 def apply_style() -> None:
+    """Apply the shared, recessive matplotlib style used by every static chart."""
     plt.rcParams.update(
         {
             "figure.facecolor": SURFACE,
@@ -57,6 +58,7 @@ def apply_style() -> None:
 
 
 def save(fig: Any, path: str | Path) -> Path:
+    """Save a figure at 150 dpi (creating parent dirs) and close it."""
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(p, dpi=150, bbox_inches="tight")

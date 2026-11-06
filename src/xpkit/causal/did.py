@@ -97,6 +97,8 @@ def _two_way_demean(v: np.ndarray, unit: np.ndarray, period: np.ndarray) -> np.n
 
 @dataclass(frozen=True)
 class EventStudy:
+    """Event-study coefficients (relative to the reference period) and the joint pre-trend test."""
+
     coefficients: pd.DataFrame  # event_time, estimate, se, ci_low, ci_high
     reference_period: int
     pretrend_wald: float

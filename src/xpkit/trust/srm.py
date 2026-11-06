@@ -22,6 +22,8 @@ from scipy import stats
 
 @dataclass(frozen=True)
 class SRMResult:
+    """Result of the chi-square sample ratio mismatch test."""
+
     observed: list[int]
     expected: list[float]
     expected_ratios: list[float]

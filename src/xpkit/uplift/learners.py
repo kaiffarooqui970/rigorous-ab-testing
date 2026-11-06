@@ -35,12 +35,14 @@ OutcomeKind = Literal["binary", "continuous"]
 
 
 def default_regressor(seed: int = 0) -> HistGradientBoostingRegressor:
+    """Conservative gradient-boosting regressor used as the default base learner."""
     return HistGradientBoostingRegressor(
         max_iter=200, learning_rate=0.05, max_leaf_nodes=15, min_samples_leaf=100, random_state=seed
     )
 
 
 def default_classifier(seed: int = 0) -> HistGradientBoostingClassifier:
+    """Conservative gradient-boosting classifier used as the default base learner."""
     return HistGradientBoostingClassifier(
         max_iter=200, learning_rate=0.05, max_leaf_nodes=15, min_samples_leaf=100, random_state=seed
     )

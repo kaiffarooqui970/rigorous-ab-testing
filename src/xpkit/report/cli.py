@@ -21,6 +21,7 @@ from xpkit.report.render import render_html, render_markdown
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Entry point for ``xpkit-report``. Returns the process exit code (0, 1 or 3)."""
     ap = argparse.ArgumentParser(prog="xpkit-report", description="Trust-checked experiment report")
     ap.add_argument("data", type=Path, help="CSV with one row per experimental unit")
     ap.add_argument("config", type=Path, help="YAML config (see xpkit.report.core docstring)")

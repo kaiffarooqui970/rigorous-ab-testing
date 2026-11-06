@@ -41,11 +41,13 @@ def _env() -> Environment:
 
 
 def render_markdown(r: ReportData, source: str = "", data_sha256: str = "") -> str:
+    """Render a report as Markdown (trust checks before effects; warning banner on failure)."""
     tpl = resources.files("xpkit.report").joinpath("templates/report.md.j2").read_text()
     return _env().from_string(tpl).render(**_context(r, source, data_sha256))
 
 
 def render_html(r: ReportData, source: str = "", data_sha256: str = "") -> str:
+    """Render a report as a self-contained HTML page (no external assets; light/dark)."""
     tpl = resources.files("xpkit.report").joinpath("templates/report.html.j2").read_text()
     env = _env()
     env.autoescape = True

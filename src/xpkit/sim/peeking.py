@@ -25,6 +25,8 @@ from xpkit.estimate.sequential import group_sequential_design
 
 @dataclass(frozen=True)
 class StrategyResult:
+    """Rejection rate and expected sample fraction of one interim-look strategy."""
+
     strategy: str
     rejection_rate: float
     rejection_mcse: float
@@ -85,4 +87,5 @@ def simulate_peeking_strategies(
 
 
 def strategies_to_records(results: dict[str, StrategyResult]) -> list[dict[str, object]]:
+    """Convert strategy results to JSON-friendly dicts."""
     return [asdict(r) for r in results.values()]

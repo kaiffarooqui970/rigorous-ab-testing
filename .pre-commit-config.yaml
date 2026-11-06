@@ -1,0 +1,25 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+        exclude: ^(results|docs/memos)/
+      - id: trailing-whitespace
+        exclude: ^(results|docs/memos)/
+      - id: check-added-large-files
+        args: [--maxkb=3000]
+      - id: detect-private-key
+  - repo: local
+    hooks:
+      - id: no-raw-data
+        name: block committed raw datasets
+        entry: raw datasets belong in data/cache (gitignored)
+        language: fail
+        files: \.(parquet|csv\.gz|gz)$

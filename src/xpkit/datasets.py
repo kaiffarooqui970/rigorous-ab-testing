@@ -44,6 +44,7 @@ class DatasetUnavailable(RuntimeError):
 
 
 def data_dir() -> Path:
+    """Cache directory for downloaded datasets: ``$XPKIT_DATA`` or ``<repo>/data/cache``."""
     root = os.environ.get("XPKIT_DATA")
     p = Path(root) if root else Path(__file__).resolve().parents[2] / "data" / "cache"
     p.mkdir(parents=True, exist_ok=True)

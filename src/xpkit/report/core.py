@@ -42,6 +42,8 @@ class ConfigError(ValueError):
 
 @dataclass
 class TrustCheck:
+    """One trust check. A failed ``critical`` check makes the report non-interpretable."""
+
     name: str
     passed: bool
     detail: str
@@ -50,6 +52,8 @@ class TrustCheck:
 
 @dataclass
 class MetricResult:
+    """Effect estimate for one metric (treatment minus control), with adjusted p-value."""
+
     name: str
     type: str
     primary: bool
@@ -68,6 +72,8 @@ class MetricResult:
 
 @dataclass
 class ReportData:
+    """Everything a report shows: trust checks first, then per-metric results."""
+
     experiment: str
     config: dict[str, Any]
     n_rows: int

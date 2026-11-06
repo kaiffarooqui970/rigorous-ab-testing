@@ -166,6 +166,8 @@ def group_sequential_design(
 
 @dataclass(frozen=True)
 class SequentialDecision:
+    """Outcome of applying a sequential design to the z-statistics observed so far."""
+
     stopped: bool
     look: int | None  # 1-based look at which the boundary was crossed
     z_at_stop: float | None

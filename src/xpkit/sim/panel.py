@@ -75,6 +75,8 @@ class PanelSpec:
 
 @dataclass(frozen=True)
 class SimulatedPanel:
+    """Output of :func:`simulate_panel`: long-format panel and the true (event-time) ATT."""
+
     data: pd.DataFrame  # unit, period, treated, post, d, y, event_time
     true_att: float
     event_effects: dict[int, float]

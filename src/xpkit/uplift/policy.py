@@ -107,6 +107,8 @@ def policy_table(
 
 @dataclass(frozen=True)
 class PolicyDecision:
+    """Targeting depth chosen on validation data and its value measured on test data."""
+
     chosen_depth: float
     chosen_on: str
     test_profit_per_user: float

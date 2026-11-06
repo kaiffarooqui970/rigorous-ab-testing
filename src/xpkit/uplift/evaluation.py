@@ -30,6 +30,8 @@ from xpkit.estimate.effects import diff_in_means
 
 @dataclass(frozen=True)
 class UpliftCurve:
+    """Qini and uplift curves at increasing targeting depths, with the random baseline."""
+
     fraction: NDArray[np.float64]  # share of population targeted, 0..1
     qini: NDArray[np.float64]
     uplift: NDArray[np.float64]

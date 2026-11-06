@@ -30,6 +30,8 @@ from xpkit._validation import check_positive, check_probability
 
 @dataclass(frozen=True)
 class SampleSize:
+    """Required units per arm for a two-arm test, plus the design inputs that produced them."""
+
     n_control: int
     n_treatment: int
     alpha: float

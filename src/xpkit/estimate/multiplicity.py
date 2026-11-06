@@ -32,6 +32,7 @@ def _check(p: ArrayLike) -> NDArray[np.float64]:
 
 
 def bonferroni(p: ArrayLike) -> NDArray[np.float64]:
+    """Bonferroni-adjusted p-values: min(m * p, 1). Controls FWER under any dependence."""
     arr = _check(p)
     return np.minimum(arr * arr.size, 1.0)
 
@@ -61,6 +62,8 @@ def benjamini_hochberg(p: ArrayLike) -> NDArray[np.float64]:
 
 @dataclass(frozen=True)
 class AdjustedPValues:
+    """Raw and adjusted p-values with rejection flags at ``alpha``."""
+
     method: str
     raw: list[float]
     adjusted: list[float]

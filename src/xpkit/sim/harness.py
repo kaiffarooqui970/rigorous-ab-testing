@@ -75,6 +75,8 @@ class ValidationResult:
 
 @dataclass(frozen=True)
 class SimulationDraw(Generic[D]):
+    """One simulated dataset and the true value of the estimand it was generated with."""
+
     data: D
     truth: float
 

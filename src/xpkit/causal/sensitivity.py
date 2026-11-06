@@ -31,6 +31,8 @@ def _e(rr: float) -> float:
 
 @dataclass(frozen=True)
 class EValue:
+    """E-values for a risk ratio point estimate and the CI limit closest to the null."""
+
     rr: float
     rr_ci_low: float | None
     rr_ci_high: float | None
@@ -63,6 +65,7 @@ def rr_from_smd(d: float) -> float:
 
 
 def rr_from_risks(p_treated: float, p_control: float) -> float:
+    """Risk ratio from two outcome probabilities, both strictly inside (0, 1)."""
     if not (0 < p_treated < 1 and 0 < p_control < 1):
         raise ValueError("risks must lie strictly in (0, 1)")
     return p_treated / p_control

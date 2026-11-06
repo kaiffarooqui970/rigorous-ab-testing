@@ -76,6 +76,8 @@ def fit_propensity(
 
 @dataclass(frozen=True)
 class OverlapSummary:
+    """Positivity diagnostics for a set of propensity scores (see :func:`overlap_summary`)."""
+
     ps_min_treated: float
     ps_max_control: float
     share_outside_05_95: float
@@ -100,10 +102,12 @@ class OverlapSummary:
 
 
 def ate_weights(t: NDArray[np.int_], ps: NDArray[np.float64]) -> NDArray[np.float64]:
+    """Inverse-probability weights for the ATE: 1/e for treated, 1/(1-e) for control."""
     return np.where(t == 1, 1 / ps, 1 / (1 - ps))
 
 
 def att_weights(t: NDArray[np.int_], ps: NDArray[np.float64]) -> NDArray[np.float64]:
+    """ATT weights: 1 for treated, e/(1-e) for control (reweights controls to the treated)."""
     return np.where(t == 1, 1.0, ps / (1 - ps))
 
 
