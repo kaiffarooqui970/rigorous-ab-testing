@@ -1,0 +1,56 @@
+# Experiment report: {{ r.experiment }}
+
+{% if not r.trustworthy %}
+> ⚠️ **WARNING: A TRUST CHECK FAILED. DO NOT ACT ON THE EFFECT ESTIMATES BELOW.**
+> {{ r.headline }}
+
+{% else %}
+**{{ r.headline }}**
+
+{% endif %}
+## 1. Trust checks (run before any effect estimate)
+
+| Check | Result | Detail |
+|---|---|---|
+{% for c in r.checks %}
+| {{ c.name }} | {{ "✅ pass" if c.passed else ("❌ FAIL" if c.severity == "critical" else "⚠️ warning") }} | {{ c.detail }} |
+{% endfor %}
+
+Units: {{ "{:,}".format(r.counts.control) }} control, {{ "{:,}".format(r.counts.treatment) }} treatment ({{ "{:,}".format(r.n_rows) }} rows in file).
+{% if r.balance is not none %}
+
+<details><summary>Covariate balance (standardized mean differences)</summary>
+
+| Covariate | Treatment mean | Control mean | SMD |
+|---|---|---|---|
+{% for name, row in r.balance.iterrows() %}
+| {{ name }} | {{ row.mean_treated | f }} | {{ row.mean_control | f }} | {{ row.smd | f(3) }} |
+{% endfor %}
+
+</details>
+{% endif %}
+
+## 2. Effect estimates{% if not r.trustworthy %} (NOT INTERPRETABLE: see warning){% endif %}
+
+
+Treatment minus control. Adjusted p-values use **{{ r.config.multiplicity }}** across {{ r.metrics | length }} metric(s) at α = {{ r.config.alpha }}.
+
+| Metric | Control | Treatment | Effect | {{ "%d" | format((1 - r.config.alpha) * 100) }}% CI | Relative lift | p | adj. p | MDE (80% power) |
+|---|---|---|---|---|---|---|---|---|
+{% for m in r.metrics %}
+| {{ m.name }}{{ " (primary)" if m.primary else "" }} | {{ m.control_mean | f }} | {{ m.treatment_mean | f }} | {{ m.estimate | f }} | {{ m.ci_low | f }} to {{ m.ci_high | f }} | {{ ("%+.2f%%" | format(100 * m.relative_lift)) if m.relative_lift is not none else "–" }} | {{ m.p_value | p }} | {{ m.adjusted_p_value | p }} | {{ m.mde_80 | f }} |
+{% endfor %}
+{% for m in r.metrics if m.cuped %}
+
+**CUPED on `{{ m.name }}`** (covariate `{{ m.cuped.covariate }}`): effect {{ m.cuped.estimate | f }} (CI {{ m.cuped.ci_low | f }} to {{ m.cuped.ci_high | f }}), p = {{ m.cuped.p_value | p }}. Variance reduction {{ "%.1f" | format(100 * m.cuped.variance_reduction) }}%, SE {{ m.cuped.se_unadjusted | f }} → {{ m.cuped.se | f }}. The adjusted p-value above uses the CUPED test.
+{% endfor %}
+
+## 3. How to read this
+
+- CIs and p-values assume units are independent and were randomized as configured.
+- The MDE column is the smallest true effect this sample would detect 80% of the time. Effects smaller than that can be real but undetected.
+- Peeking: this report is a single fixed-horizon analysis. If you looked at the data repeatedly, use group-sequential boundaries (`xpkit.estimate.group_sequential_design`).
+
+---
+*xpkit {{ version }}. Source: `{{ source }}`. Data SHA-256: `{{ data_sha256[:16] }}…`. Config: `{{ r.config.experiment }}`.*
+

@@ -58,7 +58,7 @@ ignore = ["RUF001", "RUF002", "RUF003"]  # allow unicode math symbols in docstri
 
 [tool.ruff.lint.per-file-ignores]
 # Legacy analysis kept byte-for-byte where possible; long lines left as originally written.
-"app/streamlit_app.py" = ["E501"]
+"app/*" = ["E501"]
 
 [tool.mypy]
 python_version = "3.10"

@@ -1,0 +1,13 @@
+experiment: New checkout flow (synthetic)
+unit_id: user_id
+treatment_column: variant
+control: control
+treatment: new_checkout
+expected_split: {control: 0.5, treatment: 0.5}
+alpha: 0.05
+srm_threshold: 0.001
+multiplicity: holm
+pre_experiment_covariates: [pre_revenue, tenure_days, is_mobile]
+metrics:
+  - {name: revenue, type: continuous, primary: true, cuped_covariate: pre_revenue}
+  - {name: converted, type: binary}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ r.experiment }} report</title>
+<style>
+:root{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--line:#e6e5e0;--card:#ffffff;--bad:#b42318;--bad-bg:#fdecea;--good:#067647;--warn:#9a6700;--warn-bg:#fff6dd}
+@media (prefers-color-scheme: dark){:root{--bg:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--line:#3a3936;--card:#232321;--bad:#ff8a80;--bad-bg:#3b1d1a;--good:#7bd88f;--warn:#f2c94c;--warn-bg:#3a3220}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1000px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:24px;margin:0 0 12px}h2{font-size:18px;margin:28px 0 8px}
+.banner{border-radius:8px;padding:14px 16px;margin:12px 0 20px;border:2px solid}
+.banner.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--bad);font-weight:700}
+.banner.ok{background:var(--card);border-color:var(--line)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--ink2);font-weight:600;font-size:13px}
+.pass{color:var(--good);font-weight:600}.fail{color:var(--bad);font-weight:700}.warn{color:var(--warn);font-weight:600}
+.untrusted{opacity:.55}
+.note{color:var(--ink2);font-size:13px}
+footer{margin-top:32px;color:var(--ink2);font-size:12px}
+td.detail{text-align:left;white-space:normal}
+</style>
+</head>
+<body><main>
+<h1>Experiment report: {{ r.experiment }}</h1>
+{% if not r.trustworthy %}
+<div class="banner bad" role="alert">⚠ A TRUST CHECK FAILED. DO NOT ACT ON THE EFFECT ESTIMATES BELOW.<br><span style="font-weight:400">{{ r.headline }}</span></div>
+{% else %}
+<div class="banner ok"><strong>{{ r.headline }}</strong></div>
+{% endif %}
+
+<h2>1. Trust checks</h2>
+<p class="note">These run before any effect estimate is computed.</p>
+<div class="tbl"><table>
+<tr><th>Check</th><th>Result</th><th style="text-align:left">Detail</th></tr>
+{% for c in r.checks %}
+<tr><td>{{ c.name }}</td><td class="{{ 'pass' if c.passed else ('fail' if c.severity == 'critical' else 'warn') }}">{{ "pass" if c.passed else ("FAIL" if c.severity == "critical" else "warning") }}</td><td class="detail">{{ c.detail }}</td></tr>
+{% endfor %}
+</table></div>
+<p class="note">Units: {{ "{:,}".format(r.counts.control) }} control, {{ "{:,}".format(r.counts.treatment) }} treatment.</p>
+{% if r.balance is not none %}
+<details><summary>Covariate balance</summary><div class="tbl"><table>
+<tr><th>Covariate</th><th>Treatment mean</th><th>Control mean</th><th>SMD</th></tr>
+{% for name, row in r.balance.iterrows() %}<tr><td>{{ name }}</td><td>{{ row.mean_treated | f }}</td><td>{{ row.mean_control | f }}</td><td>{{ row.smd | f(3) }}</td></tr>
+{% endfor %}</table></div></details>
+{% endif %}
+
+<h2>2. Effect estimates{% if not r.trustworthy %} (not interpretable){% endif %}</h2>
+<p class="note">Treatment minus control. Adjusted p-values: {{ r.config.multiplicity }} across {{ r.metrics | length }} metric(s), α = {{ r.config.alpha }}.</p>
+<div class="tbl{{ ' untrusted' if not r.trustworthy else '' }}"><table>
+<tr><th>Metric</th><th>Control</th><th>Treatment</th><th>Effect</th><th>CI</th><th>Rel. lift</th><th>p</th><th>adj. p</th><th>MDE 80%</th></tr>
+{% for m in r.metrics %}
+<tr><td>{{ m.name }}{{ " (primary)" if m.primary else "" }}</td><td>{{ m.control_mean | f }}</td><td>{{ m.treatment_mean | f }}</td><td>{{ m.estimate | f }}</td><td>{{ m.ci_low | f }} to {{ m.ci_high | f }}</td><td>{{ ("%+.2f%%" | format(100 * m.relative_lift)) if m.relative_lift is not none else "–" }}</td><td>{{ m.p_value | p }}</td><td>{{ m.adjusted_p_value | p }}</td><td>{{ m.mde_80 | f }}</td></tr>
+{% endfor %}
+</table></div>
+{% for m in r.metrics if m.cuped %}
+<p><strong>CUPED on {{ m.name }}</strong> (covariate {{ m.cuped.covariate }}): effect {{ m.cuped.estimate | f }} (CI {{ m.cuped.ci_low | f }} to {{ m.cuped.ci_high | f }}), p = {{ m.cuped.p_value | p }}. Variance reduction {{ "%.1f" | format(100 * m.cuped.variance_reduction) }}%.</p>
+{% endfor %}
+<footer>xpkit {{ version }} · source {{ source }} · data SHA-256 {{ data_sha256[:16] }}… · single fixed-horizon analysis; if you peeked, use group-sequential boundaries.</footer>
+</main></body></html>

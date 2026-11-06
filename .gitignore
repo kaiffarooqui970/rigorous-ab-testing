@@ -22,3 +22,4 @@ service-account*.json
 # Downloaded public datasets (Hillstrom, Criteo, GA360 pulls) — fetched at runtime, never committed
 data/cache/
 results/**/*_quick.json
+reports/
