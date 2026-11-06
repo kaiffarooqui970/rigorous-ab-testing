@@ -28,10 +28,25 @@ def main() -> None:
     t0 = time.time()
     (ROOT / "reports").mkdir(exist_ok=True)
     report = [PY, "-m", "xpkit.report.cli"]
-    run([*report, "examples/checkout_test.csv", "examples/checkout_test.yaml",
-         "-o", "reports/checkout_test.html"])
-    code = run([*report, "examples/checkout_test_srm.csv", "examples/checkout_test_srm.yaml",
-                "-o", "reports/checkout_test_srm.html"], allow=(3,))
+    run(
+        [
+            *report,
+            "examples/checkout_test.csv",
+            "examples/checkout_test.yaml",
+            "-o",
+            "reports/checkout_test.html",
+        ]
+    )
+    code = run(
+        [
+            *report,
+            "examples/checkout_test_srm.csv",
+            "examples/checkout_test_srm.yaml",
+            "-o",
+            "reports/checkout_test_srm.html",
+        ],
+        allow=(3,),
+    )
     assert code == 3, "the SRM example must be flagged"
     for stage in ("stage2_experiments", "stage3_causal", "stage4_uplift"):
         run([PY, f"validation/{stage}.py", "--quick"])
