@@ -1,3 +1,12 @@
+> **Erratum (November 2026).** This memo is kept as originally written. A later audit found problems with it; see `docs/memos/03_ga360.md` for the corrected analysis.
+> 1. This is observational data, not an A/B test. Nothing here shows that device *causes* the gap.
+> 2. "It doesn't shrink over time" is right, but the README's "stable across the year" was not: the weekly trend is significant (p = 3.5e-5) and the gap *widens*.
+> 3. The CIs treat sessions as independent. Clustering by visitor widens them (see the new memo).
+> 4. A desktop-only Referral segment, plausibly internal traffic, holds about half of desktop conversions. Excluding it roughly halves the adjusted gap.
+> 5. The revenue claim relied on Mann-Whitney, which does not test a difference in *means*.
+> 6. "Phone vs tablet was already split out" is incorrect: tablets were excluded.
+> 7. The notebook summary says "~2 year test"; the computed figure was 3.8 years.
+
 # Decision Memo: Mobile Checkout Experience
 
 **To:** Head of E-commerce
