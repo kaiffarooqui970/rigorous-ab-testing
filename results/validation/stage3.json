@@ -4,20 +4,20 @@
       "results": {
         "aipw": {
           "alpha": 0.05,
-          "bias": -0.00018373605996528774,
+          "bias": -0.00018373605996528796,
           "bias_mcse": 0.001203719134120838,
           "coverage": 0.956,
           "coverage_mcse": 0.006485676526007139,
           "empirical_sd": 0.03806494126947551,
           "estimator": "aipw",
           "mean_estimate": 0.49981626394003476,
-          "mean_se": 0.038081080230476155,
+          "mean_se": 0.03807631979790172,
           "n_failed": 0,
           "n_reps": 1000,
           "rejection_mcse": 0.0,
           "rejection_rate": 1.0,
-          "rmse": 0.03804634769638872,
-          "se_ratio": 1.000423984917943,
+          "rmse": 0.03804634769638871,
+          "se_ratio": 1.000298924103039,
           "truth": 0.5
         },
         "ipw": {
@@ -136,20 +136,20 @@
       "results": {
         "aipw": {
           "alpha": 0.05,
-          "bias": 5.318354972392628e-05,
+          "bias": 5.3183549723926274e-05,
           "bias_mcse": 0.00014065425281570098,
           "coverage": 0.937,
           "coverage_mcse": 0.007683163410991592,
           "empirical_sd": 0.004447878014867666,
           "estimator": "aipw",
-          "mean_estimate": 0.010053183549723928,
-          "mean_se": 0.004299979548722249,
+          "mean_estimate": 0.010053183549723926,
+          "mean_se": 0.0042998720478897535,
           "n_failed": 0,
           "n_reps": 1000,
           "rejection_mcse": 0.015267612779999367,
           "rejection_rate": 0.63,
           "rmse": 0.004445971626795342,
-          "se_ratio": 0.9667485336488444,
+          "se_ratio": 0.9667243646333867,
           "truth": 0.01
         },
         "ipw": {
@@ -210,11 +210,11 @@
     "O4_unmeasured_confounding": {
       "example_aipw_estimate_seed0": 1.0871938679766764,
       "example_e_value": {
-        "e_value_ci": 2.6806308493371445,
+        "e_value_ci": 2.680651393493534,
         "e_value_point": 2.848253937815719,
         "rr": 1.7273580092084972,
-        "rr_ci_high": 1.8109349103846104,
-        "rr_ci_low": 1.647638286095575
+        "rr_ci_high": 1.8109242138775226,
+        "rr_ci_low": 1.6476480181287931
       },
       "results": {
         "aipw": {
@@ -226,13 +226,13 @@
           "empirical_sd": 0.04403921207261709,
           "estimator": "aipw",
           "mean_estimate": 1.069718229573545,
-          "mean_se": 0.045584917436183335,
+          "mean_se": 0.045579218965327115,
           "n_failed": 0,
           "n_reps": 1000,
           "rejection_mcse": 0.0,
           "rejection_rate": 1.0,
           "rmse": 0.5714161127026358,
-          "se_ratio": 1.0350983882503961,
+          "se_ratio": 1.0349689928641475,
           "truth": 0.5
         },
         "ipw": {
@@ -319,13 +319,13 @@
           "empirical_sd": 0.03752999585756326,
           "estimator": "aipw_without_x1",
           "mean_estimate": 0.8549945673615064,
-          "mean_se": 0.0373747493649359,
+          "mean_se": 0.03737007722923855,
           "n_failed": 0,
           "n_reps": 1000,
           "rejection_mcse": 0.0,
           "rejection_rate": 1.0,
           "rmse": 0.35697091610474757,
-          "se_ratio": 0.995863402351107,
+          "se_ratio": 0.9957389116446578,
           "truth": 0.5
         },
         "ipw_without_x1": {
@@ -383,20 +383,20 @@
       "results": {
         "aipw": {
           "alpha": 0.05,
-          "bias": 0.001549812206967629,
+          "bias": 0.00154981220696763,
           "bias_mcse": 0.003671275659250879,
           "coverage": 0.956,
           "coverage_mcse": 0.006485676526007139,
           "empirical_sd": 0.11609593001568994,
           "estimator": "aipw",
           "mean_estimate": 0.5015498122069677,
-          "mean_se": 0.09594198063190655,
+          "mean_se": 0.09592998713468712,
           "n_failed": 0,
           "n_reps": 1000,
           "rejection_mcse": 0.006270486424512857,
           "rejection_rate": 0.959,
           "rmse": 0.1160482167856044,
-          "se_ratio": 0.826402619100776,
+          "se_ratio": 0.8262993123163106,
           "truth": 0.5
         },
         "ipw": {

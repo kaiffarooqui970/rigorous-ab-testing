@@ -100,17 +100,24 @@ class ReportData:
         if not prim:
             return "No primary metric configured."
         m = prim[0]
+        # Report the estimate whose test produced the adjusted p-value (CUPED if configured).
+        est, lo, hi = (
+            (m.cuped["estimate"], m.cuped["ci_low"], m.cuped["ci_high"])
+            if m.cuped
+            else (m.estimate, m.ci_low, m.ci_high)
+        )
+        how = " (CUPED-adjusted)" if m.cuped else ""
         if m.adjusted_p_value < self.config["alpha"]:
-            direction = "increased" if m.estimate > 0 else "decreased"
+            direction = "increased" if est > 0 else "decreased"
             return (
-                f"Primary metric '{m.name}' {direction} by {m.estimate:+.4g} "
-                f"(CI {m.ci_low:+.4g} to {m.ci_high:+.4g}); significant after "
+                f"Primary metric '{m.name}' {direction} by {est:+.4g}{how} "
+                f"(CI {lo:+.4g} to {hi:+.4g}); significant after "
                 f"{self.config['multiplicity']} correction."
             )
+        mde = f" Smallest effect detectable at 80% power: {m.mde_80:.4g}." if m.mde_80 else ""
         return (
-            f"No significant change in primary metric '{m.name}' "
-            f"(estimate {m.estimate:+.4g}, CI {m.ci_low:+.4g} to {m.ci_high:+.4g}). "
-            f"Smallest effect detectable at 80% power: {m.mde_80:.4g}."
+            f"No significant change in primary metric '{m.name}'{how} "
+            f"(estimate {est:+.4g}, CI {lo:+.4g} to {hi:+.4g}).{mde}"
         )
 
 

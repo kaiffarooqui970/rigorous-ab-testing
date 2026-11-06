@@ -27,7 +27,8 @@ validate:           ## full simulation studies -> results/validation/*.json + ch
 	$(PY) validation/stage3_causal.py
 	$(PY) validation/stage4_uplift.py
 
-case-studies:       ## real data: downloads Hillstrom (4 MB) + Criteo (297 MB); GA360 needs GCP_PROJECT
+case-studies:       ## real data: downloads Hillstrom (4 MB) + Criteo (297 MB); GA360 also needs
+                    ## pip install -e ".[bigquery]" and GCP_PROJECT (otherwise it exits 2: BLOCKED)
 	cd case_studies && $(PY) 01_hillstrom.py
 	cd case_studies && $(PY) 02_criteo.py
 	cd case_studies && $(PY) 03_ga360.py
