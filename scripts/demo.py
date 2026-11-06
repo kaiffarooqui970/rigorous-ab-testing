@@ -36,9 +36,9 @@ def main() -> None:
     for stage in ("stage2_experiments", "stage3_causal", "stage4_uplift"):
         run([PY, f"validation/{stage}.py", "--quick"])
     print(f"\nDemo finished in {time.time() - t0:.0f}s.")
-    print("  reports/checkout_test.html      healthy test: trust checks pass, CUPED-adjusted effect")
-    print("  reports/checkout_test_srm.html  logging bug: SRM detected, DO-NOT-INTERPRET banner")
-    print("  results/validation/stage*_quick.json  quick Monte Carlo checks (full runs: make validate)")
+    print("  reports/checkout_test.html      healthy test: trust checks pass, CUPED effect")
+    print("  reports/checkout_test_srm.html  logging bug: SRM detected, warning banner")
+    print("  results/validation/stage*_quick.json  quick Monte Carlo runs (full: make validate)")
     print("  Interactive app: make app")
 
 
