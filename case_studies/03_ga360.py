@@ -218,7 +218,8 @@ def main() -> int:
     }
     write_json(results, RESULTS / "ga360.json")
     charts(bal_before, bal_after, results)
-    render_memos("03_ga360", {"r": results})
+    # Render from the saved JSON, exactly as --render-only does, so both paths agree.
+    render_memos("03_ga360", {"r": read_json(RESULTS / "ga360.json")})
     print(
         f"GA360: naive {full['naive_iid']['estimate']:.5f}, AIPW(A) {a['estimate']:.5f}, "
         f"cluster SE x{se_inflation:.2f}, E-value {ev.e_value_point:.2f}"

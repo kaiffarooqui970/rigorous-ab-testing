@@ -16,7 +16,7 @@ import pandas as pd
 import yaml
 from _common import FIGURES, RESULTS, ROOT, git_commit, render_memo
 
-from xpkit._io import write_json
+from xpkit._io import read_json, write_json
 from xpkit.datasets import DatasetUnavailable, load_hillstrom
 from xpkit.design import mde_means, mde_proportions
 from xpkit.estimate import (
@@ -101,8 +101,6 @@ def decide(primary: dict, adj_p: float, srm_ok: bool, balance_ok: bool, econ: di
 
 def main() -> int:
     if "--render-only" in sys.argv:
-        from xpkit._io import read_json
-
         render_memo(
             "01_hillstrom.md.j2", "01_hillstrom.md", {"r": read_json(RESULTS / "hillstrom.json")}
         )
@@ -184,7 +182,10 @@ def main() -> int:
     }
     write_json(results, RESULTS / "hillstrom.json")
     charts(effects)
-    render_memo("01_hillstrom.md.j2", "01_hillstrom.md", {"r": results})
+    # Render from the saved JSON, exactly as --render-only does, so both paths agree.
+    render_memo(
+        "01_hillstrom.md.j2", "01_hillstrom.md", {"r": read_json(RESULTS / "hillstrom.json")}
+    )
     print(
         f"Hillstrom: SRM p={srm.p_value:.3f}, max|SMD|={max_smd:.3f}; "
         f"{best}: {decisions[best]['verdict']}"

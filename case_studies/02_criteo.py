@@ -16,7 +16,7 @@ import numpy as np
 import yaml
 from _common import FIGURES, RESULTS, ROOT, git_commit, render_memos
 
-from xpkit._io import write_json
+from xpkit._io import read_json, write_json
 from xpkit.datasets import DatasetUnavailable, load_criteo_sample
 from xpkit.estimate import diff_in_proportions
 from xpkit.trust import balance_table, srm_test
@@ -59,8 +59,6 @@ def model_vs_random_ci(
 
 def main() -> int:
     if "--render-only" in sys.argv:
-        from xpkit._io import read_json
-
         render_memos("02_criteo", {"r": read_json(RESULTS / "criteo.json")})
         return 0
     try:
@@ -192,7 +190,8 @@ def main() -> int:
     }
     write_json(results, RESULTS / "criteo.json")
     charts(D["test"], scores, yname, ev)
-    render_memos("02_criteo", {"r": results})
+    # Render from the saved JSON, exactly as --render-only does, so both paths agree.
+    render_memos("02_criteo", {"r": read_json(RESULTS / "criteo.json")})
     print(
         f"Criteo: SRM p={srm.p_value:.3f}; best={best} qini={b['qini_coefficient']:.5f} "
         f"CI={b['qini_ci']}; decision={verdict}"
