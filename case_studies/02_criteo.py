@@ -4,7 +4,8 @@ Order: trust checks -> average effect -> uplift models (train) -> depth choice (
 -> value vs random targeting (test) -> sensitivity to economics -> decision.
 
 Run:  python case_studies/02_criteo.py
-Out:  results/case_studies/criteo.json, assets/case_studies/criteo_*.png, docs/memos/02_criteo.md
+Out:  results/case_studies/criteo.json, assets/case_studies/criteo_*.png,
+      docs/memos/02_criteo.md, docs/memos/02_criteo_appendix.md
 """
 
 from __future__ import annotations
@@ -13,7 +14,7 @@ import sys
 
 import numpy as np
 import yaml
-from _common import FIGURES, RESULTS, ROOT, git_commit, render_memo
+from _common import FIGURES, RESULTS, ROOT, git_commit, render_memos
 
 from xpkit._io import write_json
 from xpkit.datasets import DatasetUnavailable, load_criteo_sample
@@ -60,7 +61,7 @@ def main() -> int:
     if "--render-only" in sys.argv:
         from xpkit._io import read_json
 
-        render_memo("02_criteo.md.j2", "02_criteo.md", {"r": read_json(RESULTS / "criteo.json")})
+        render_memos("02_criteo", {"r": read_json(RESULTS / "criteo.json")})
         return 0
     try:
         d = load_criteo_sample(CFG["sample_rows"], CFG["sample_seed"])
@@ -191,7 +192,7 @@ def main() -> int:
     }
     write_json(results, RESULTS / "criteo.json")
     charts(D["test"], scores, yname, ev)
-    render_memo("02_criteo.md.j2", "02_criteo.md", {"r": results})
+    render_memos("02_criteo", {"r": results})
     print(
         f"Criteo: SRM p={srm.p_value:.3f}; best={best} qini={b['qini_coefficient']:.5f} "
         f"CI={b['qini_ci']}; decision={verdict}"

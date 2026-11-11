@@ -18,16 +18,23 @@ def test_readme_limitations_cv_are_rendered_from_results():
 
 
 def test_memos_are_rendered_from_results():
-    for script, memo in (
-        ("01_hillstrom.py", "01_hillstrom.md"),
-        ("02_criteo.py", "02_criteo.md"),
-        ("03_ga360.py", "03_ga360.md"),
+    for script, memos in (
+        ("01_hillstrom.py", ("01_hillstrom.md",)),
+        ("02_criteo.py", ("02_criteo.md", "02_criteo_appendix.md")),
+        ("03_ga360.py", ("03_ga360.md", "03_ga360_appendix.md")),
     ):
-        before = (ROOT / "docs" / "memos" / memo).read_text()
+        before = {m: (ROOT / "docs" / "memos" / m).read_text() for m in memos}
         subprocess.run(
             [sys.executable, script, "--render-only"], cwd=ROOT / "case_studies", check=True
         )
-        assert (ROOT / "docs" / "memos" / memo).read_text() == before, f"{memo} is stale"
+        for m in memos:
+            assert (ROOT / "docs" / "memos" / m).read_text() == before[m], f"{m} is stale"
+
+
+def test_memos_fit_on_one_page():
+    for memo in ("01_hillstrom.md", "02_criteo.md", "03_ga360.md"):
+        words = len((ROOT / "docs" / "memos" / memo).read_text().split())
+        assert words <= 700, f"{memo} has {words} words; one page is about 700"
 
 
 def test_no_raw_data_committed():

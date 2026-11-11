@@ -12,7 +12,8 @@ script asks what can credibly be estimated when device is *chosen*, not assigned
 6. a decision: what evidence the business should collect next.
 
 Run:  GCP_PROJECT=<billing project> python case_studies/03_ga360.py
-Out:  results/case_studies/ga360.json, assets/case_studies/ga360_*.png, docs/memos/03_ga360.md
+Out:  results/case_studies/ga360.json, assets/case_studies/ga360_*.png,
+      docs/memos/03_ga360.md, docs/memos/03_ga360_appendix.md
 If BigQuery is unavailable and nothing is cached, the script exits with BLOCKED (code 2).
 """
 
@@ -23,7 +24,7 @@ import sys
 import numpy as np
 import pandas as pd
 import yaml
-from _common import FIGURES, RESULTS, ROOT, git_commit, render_memo
+from _common import FIGURES, RESULTS, ROOT, git_commit, render_memos
 
 from xpkit._io import read_json, write_json
 from xpkit.causal import aipw, e_value, ipw
@@ -100,7 +101,7 @@ def run(d: pd.DataFrame, cols: dict[str, list[str]], label: str) -> dict:
 
 def main() -> int:
     if "--render-only" in sys.argv:
-        render_memo("03_ga360.md.j2", "03_ga360.md", {"r": read_json(RESULTS / "ga360.json")})
+        render_memos("03_ga360", {"r": read_json(RESULTS / "ga360.json")})
         return 0
     try:
         g = load_ga360_sessions()
@@ -217,7 +218,7 @@ def main() -> int:
     }
     write_json(results, RESULTS / "ga360.json")
     charts(bal_before, bal_after, results)
-    render_memo("03_ga360.md.j2", "03_ga360.md", {"r": results})
+    render_memos("03_ga360", {"r": results})
     print(
         f"GA360: naive {full['naive_iid']['estimate']:.5f}, AIPW(A) {a['estimate']:.5f}, "
         f"cluster SE x{se_inflation:.2f}, E-value {ev.e_value_point:.2f}"

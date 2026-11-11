@@ -64,3 +64,9 @@ def render_memo(template: str, out_name: str, context: dict[str, Any]) -> Path:
     out = MEMOS / out_name
     out.write_text(text)
     return out
+
+
+def render_memos(stem: str, context: dict[str, Any]) -> None:
+    """Render the one-page memo ``<stem>.md`` and its ``<stem>_appendix.md``."""
+    for name in (stem, f"{stem}_appendix"):
+        render_memo(f"{name}.md.j2", f"{name}.md", context)
