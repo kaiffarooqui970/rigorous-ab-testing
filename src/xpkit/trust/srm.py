@@ -17,6 +17,7 @@ from dataclasses import asdict, dataclass
 from typing import Any
 
 import numpy as np
+from numpy.typing import NDArray
 from scipy import stats
 
 
@@ -74,6 +75,7 @@ def srm_test(
         raise ValueError(f"counts must be non-negative and finite, got {list(counts)}")
     if obs.sum() == 0:
         raise ValueError("all arm counts are zero")
+    ratios: NDArray[np.float64]
     if expected_ratios is None:
         ratios = np.full(obs.size, 1.0 / obs.size)
     else:

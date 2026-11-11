@@ -253,7 +253,9 @@ def aipw(
     n = len(y)
     crossfit = ps_model == "gbm" or outcome_model == "gbm"
 
-    m1, m0 = np.empty(n), np.empty(n)
+    m1: NDArray[np.float64] = np.empty(n)
+    m0: NDArray[np.float64] = np.empty(n)
+    ps: NDArray[np.float64]
     if crossfit:
         folds = np.random.default_rng(seed).integers(0, n_folds, n)
         ps = np.empty(n)
