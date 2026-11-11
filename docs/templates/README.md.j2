@@ -100,7 +100,7 @@ See [`docs/method_guide.md`](docs/method_guide.md) for when to use, and when not
 
 ### Reproducibility and traceability
 
-- Seeds everywhere; wall-clock timings are excluded from results. A clean-room rerun at commit `8c40362` (fresh clone, fresh Python 3.12 venv, fresh downloads and a fresh BigQuery pull) ran lint, all 148 tests, the demo, the validation studies and all three case studies, and compared every number in `results/` with the committed files. The Stage 2, 3 and 4 results were byte-identical. Hillstrom and Criteo had identical values; only the recorded commit hash differed. GA360 differed by at most 2e-8 relative (optimizer and row-order noise). No reported figure changed.
+- Seeds everywhere; wall-clock timings are excluded from results. A clean-room rerun at commit `1a77d93` (fresh clone, fresh Python 3.12 venv, fresh downloads and a fresh BigQuery pull) ran lint, all 148 tests, the demo, the validation studies and all three case studies, and compared every number in `results/` with the committed files. The Stage 2, 3 and 4 results were byte-identical. Hillstrom and Criteo had identical values; only the recorded commit hash differed. GA360 differed by at most 2e-8 relative (optimizer and row-order noise). No reported figure changed.
 - README, memos, limitations and CV bullets are **rendered from those JSON files** (`scripts/build_docs.py`, `case_studies/templates/`). `tests/test_docs.py` fails if a doc is stale.
 - `make validate` regenerates the simulation results and `make case-studies` the real-data ones. The real-data runs download Hillstrom (4 MB) and Criteo (297 MB, checksum-pinned), and GA360 needs a BigQuery billing project. CI never touches them.
 
